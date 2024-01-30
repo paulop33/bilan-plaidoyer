@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LetterController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>
+            Objet : Demande d'informations complémentaires concernant le plaidoyer vélo et les mesures mises en place par la mairie
+        </h1>
+        <p>
+            {% if data.genre == 0 %}
+                Madame la Maire,
+            {% else %}
+                Monsieur le Maire,
+            {% endif %}
+        </p>
+        <p>
+            Je vous écris au nom de l'association Vélocité pour vous informer que nous sommes en train de préparer un rapport
+            sur l'évolution des mesures et des aménagements cyclables réalisés depuis la signature de notre plaidoyer
+             lors de la campagne municipale de 2020.
+        </p>
+        <p>
+            Comme vous le savez, ce plaidoyer comprend cinq points, à savoir :
+            <ul>
+                <li>la création d'un réseau cyclable à haut niveau de service (ReVE),</li>
+                <li>la mise en place d'un parc circulaire sur les boulevards,</li>
+                <li>l'intermodalité,</li>
+                <li>l'apaisement des villes et centres-villes,</li>
+                <li>la promotion d'une génération vélo.</li>
+            </ul>
+        </p>
+        <p>
+            Voici les critères de notation qui seront pris en compte pour chaque point.
+            <ul>
+                <li>ReVE : avancement et comparaison linéaire demandés / prévus</li>
+                <li>Boulevards : déploiement du projet de reconfiguration{% if not data.hasBoulevard %} (non concerné){% endif %}</li>
+                <li>Intermodalité : évolution du nombre de places sécurisées en gare{% if not data.hasGare %} (non concerné){% endif %}</li>
+                <li>Apaisement : progression du nombre d'arceaux, ville à 30, évolution du linéaire DSC, progression secteur borné et aire piétonne, élargissement stationnement payant, évolution aménagements cyclables pondérés inclus boulevards avec score de la mutation des bandes en couloir bus</li>
+                <li>Ecoles : progression des rues aux enfants en proportion du nombre d'école, volume SRAV, vélobus-pédibus</li>
+            </ul>
+            Les différents aménagements cyclables seront pondérés avec une échelle de valeur reflet de la qualité effective des aménagements pour les cyclistes.
+        </p>
+        <p>
+            Ce rapport sera majoritairement basé sur les données en Open Data de la métropole à date pour les valeurs concernées.
+            Les données y seront extraite au plus tard le {{ data.dateExtract|date('d/m/Y') }} afin d'arreter les calculs. Nous vous invitons donc
+            à proposer les mises à jour necessaires auprès de la métropole afin que ce document soit le plus proche
+            possible de la réalité.
+        </p>
+        <p>
+            Dans le cadre de notre rapport, nous avons besoin de certaines
+            informations complémentaires pour évaluer la progression des mesures et des aménagements liés aux 5 points du plaidoyer.
+        </p>
+        <p>
+            Tout d'abord, concernant le point 3 sur l'intermodalité, nous aimerions savoir si la mairie a installé des parc
+            relais voiture + vélo au niveau des intersections entre les grands axes automobiles et le réseau cyclable.<br>
+            {% if data.hasGare %}
+                Autour de votre gare, avez-vous installé une vélo-station (parking sécurisé comme à la gare Saint-Jean) ?
+                En complément, nous aimerions connaître le nombre d'arceaux qui ont été installés à proximité de la gare.<br>
+            {% endif %}
+        </p>
+        <p>
+            En ce qui concerne le point 4 sur l'amélioration des villes et centres-villes, nous avons joint à cette lettre une
+            carte des zones 30 que nous vous prions de valider. Si des données manquent, merci de les faire
+            remonter à la métropole. Nous aimerions également savoir si la circulation à 30km/h a été généralisée dans
+            votre ville et vos ambitions en la matière.<br>
+            Aussi, nous vous demandons également de valider une carte des zones piétonnes que nous avons générée à partir de la
+            même source de données. Nous aimerions savoir quelles sont vos ambitions concernant l'extension de ces zones.<br>
+            Dernier élément de ce point 4, nous aimerions connaître l’évolution du nombre de places de stationnement automobile
+            en surface sur votre commune. Quelles sont vos ambitions en la matière ?<br>
+        </p>
+        <p>
+            Enfin, pour le point 5 sur la promotion d'une génération vélo, nous aimerions savoir si la mairie a mis en place le
+            programme « savoir rouler à vélo ». Si ce n'est pas le cas, nous aimerions savoir à quelle échéance cette mesure est
+            prévue.<br>
+            Nous aimerions également savoir si des dispositifs « rues aux enfants » (piétonnisation temporaire ou permanente) ont
+            été mises en place devant les écoles ainsi que des stations de stationnement vélo et des prêts de vélo gratuits pour
+            les enfants.<br>
+            Nous souhaitons également savoir quelles initiatives ont été développées pour le périscolaire et pour
+            les agents municipaux. Des excursions scolaires à pied ou à vélo ont-elles été favorisées ? Enfin, nous aimerions
+            savoir si des initiatives de type vélobus ou pédibus ont été mises en place.
+        </p>
+        <p>
+            Nous vous remercions de votre collaboration et nous restons à votre disposition pour toute information complémentaire.<br>
+            Cordialement,
+        </p>
+    </div>
+{% endblock %}
