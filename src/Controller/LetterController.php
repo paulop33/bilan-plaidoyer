@@ -17,6 +17,11 @@ class LetterController extends AbstractController
                 'dateExtract' => new \DateTime('2024-03-01'),
                 'hasGare' => true,
                 'hasBoulevard' => true,
+                'hasNewSecteurBorne' => true,
+                'hasEvolutionSecteurBorne' => true,
+                'isCity30' => true,
+                'cityName' => 'Bordeaux',
+                'nbRuesAuxEnfants' => 6,
             ]
         ]);
     }
