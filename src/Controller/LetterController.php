@@ -15,6 +15,7 @@ class LetterController extends AbstractController
             'data' => [
                 'genre' => 0,
                 'dateExtract' => new \DateTime('2024-03-01'),
+                'dateRetourMax' => new \DateTime('2024-04-01'),
                 'hasGare' => true,
                 'hasBoulevard' => true,
                 'hasNewSecteurBorne' => true,

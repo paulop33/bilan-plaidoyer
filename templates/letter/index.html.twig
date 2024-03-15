@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container">
         <h1>
-            Objet : Demande d'informations complémentaires concernant le plaidoyer vélo et les mesures mises en place par la mairie
+            Objet : Demande d'informations complémentaires concernant le plaidoyer vélo et la politique cyclable déployée par la mairie pour la réalisation d’un bilan intermédiaire de mandat
         </h1>
         <p>
             {% if data.genre == 0 %}
@@ -15,59 +15,84 @@
             {% endif %}
         </p>
         <p>
-            Je vous écris au nom de l'association Vélocité pour vous informer que nous sommes en train de préparer un rapport
-            sur l'évolution des mesures et des aménagements cyclables réalisés depuis votre signature de notre plaidoyer
-             lors de la campagne municipale de 2020.
+            L'association Vélo-Cité prépare un bilan sur l'évolution des mesures et des aménagements cyclables réalisés depuis le début du mandat. Ce bilan, qui
+            sera rendu public pour valoriser les politiques cyclables, s’appuiera sur les thèmes évoqués dans notre plaidoyer « la métropole à vélo », publié lors
+            de la campagne municipale de 2020.
         </p>
         <p>
-            Comme vous le savez, ce plaidoyer comprend cinq points, à savoir :
-            <ul>
-                <li>la création d'un réseau cyclable à haut niveau de service (ReVE),</li>
-                <li>la mise en place d'un parc circulaire sur les boulevards,</li>
-                <li>l'intermodalité,</li>
-                <li>l'apaisement des villes et centres-villes,</li>
-                <li>la promotion d'une génération vélo.</li>
-            </ul>
+            Comme vous le savez, ce plaidoyer comprend cinq points majeurs, à savoir :
         </p>
+        <ul>
+            <li>la création d'un réseau cyclable à haut niveau de service (ReVE),</li>
+            <li>la mise en place d'un parc circulaire sur les boulevards,</li>
+            <li>le développement de l'intermodalité,</li>
+            <li>l'apaisement des villes et centres-villes,</li>
+            <li>la promotion d'une génération vélo.</li>
+        </ul>
         <p>
             Voici les critères de notation qui seront pris en compte pour chaque point.
-            <ul>
-                <li>ReVE : avancement et comparaison linéaire demandés / prévus</li>
-                <li>Boulevards : déploiement du projet de reconfiguration{% if not data.hasBoulevard %} (non concerné){% endif %}</li>
-                <li>Intermodalité : évolution du nombre de places sécurisées en gare{% if not data.hasGare %} (non concerné){% endif %}</li>
-                <li>Apaisement : progression du nombre d'arceaux, ville à 30, évolution du linéaire en double-sens cyclable (DSC), progression du secteur borné et aire piétonne, élargissement stationnement payant, évolution aménagements cyclables pondérés inclus boulevards avec score de la mutation des bandes en couloir bus</li>
-                <li>Écoles : progression des rues aux enfants en proportion du nombre d'écoles, volume de déploiement du Savoir Rouler à Vélo (SRAV), vélobus/pédibus</li>
-            </ul>
-            Les différents aménagements cyclables seront pondérés avec une échelle de valeur reflétant la qualité effective des aménagements pour les cyclistes.
+        </p>
+        <ul>
+            <li><strong>ReVE</strong> : avancement et comparaison linéaire demandés / prévus</li>
+            <li><strong>Boulevards</strong> : déploiement du projet de reconfiguration{% if not data.hasBoulevard %} (non concerné){% endif %}</li>
+            <li><strong>Intermodalité</strong> : évolution du nombre de places de stationnement sécurisées en gare{% if not data.hasGare %} (non concerné){% endif %}</li>
+            <li><strong>Apaisement</strong> : ville à 30, évolution du linéaire en double-sens
+                cyclable (DSC), progression des zones de circulation restreinte et
+                des aires piétonnes, progression du nombre d'arceaux vélos,
+                élargissement du stationnement payant, évolution des
+                aménagements cyclables</li>
+            <li><strong>Écoles</strong> : progression des rues aux enfants en proportion du nombre d'écoles, volume de déploiement du Savoir Rouler à Vélo (SRAV), développement des vélobus/pédibus</li>
+        </ul>
+        <p>
+            Les différents types d’aménagements cyclables seront pondérés avec une échelle de valeur reflétant la qualité effective des aménagements pour les cyclistes.
         </p>
         <p>
-            Ce rapport sera majoritairement basé sur les données en Open Data de la métropole à date pour les valeurs concernées.
-            Les données y seront extraites au plus tard le {{ data.dateExtract|date('d/m/Y') }} afin d'arrêter les calculs. Nous vous invitons donc
-            à proposer les mises à jour nécessaires auprès de la métropole afin que ce document soit le plus proche
-            possible de la réalité.<br>
-            Dans le cadre de notre rapport, nous avons besoin de certaines
-            informations complémentaires pour évaluer la progression des mesures et des aménagements liés aux 5 points du plaidoyer.
+            <strong>L’Open Data de Bordeaux Métropole</strong><br>
+            Notre bilan sera majoritairement basé sur les données en Open Data de la
+            métropole à date pour les valeurs concernées. Les données y seront
+            extraites au plus tard le {{ data.dateExtract|date('d/m/Y') }} afin d'arrêter les calculs. Nous vous
+            invitons donc à proposer les mises à jour nécessaires auprès de la
+            métropole afin que ce document soit le plus proche possible de la réalité
+            et qu’ainsi toutes vos actions puissent être correctement valorisées.
+        </p>
+
+        <p>
+            <strong>Notre sollicitation pour compléter les informations</strong>
+            Afin de nous permettre de produire un bilan le plus complet et qualitatif
+            possible, reflétant toutes vos actions en matière de politique cyclable et
+            en évaluant plus finement la progression des mesures et des
+            aménagements liés aux cinq points du plaidoyer, nous avons besoin de
+            certaines informations complémentaires de votre part, et dont vous
+            trouverez ci-après le détail.
         </p>
         <p>
-            Tout d'abord, concernant le point 3 sur l'intermodalité, nous aimerions savoir si la mairie a installé des parcs
-            relais voiture + vélo au niveau des intersections entre les grands axes automobiles et le réseau cyclable.<br>
+            Je vous remercie par avance très vivement du temps que vous pourrez
+            consacrer à bien vouloir nous communiquer ces informations au plus tard
+            pour le {{ data.dateRetourMax|date('d/m/Y') }}.
+            Détail des informations complémentaires demandées
+        </p>
+        <h3>
+            Point 3 sur l'intermodalité :
+        </h3>
+        <ul>
+            <li>La commune a-t-elle ouvert un ou des parcs relais permettant l’intermodalité voiture + vélo, au niveau des intersections entre les grands axes automobiles et le réseau cyclable ?</li>
             {% if data.hasGare %}
-                Autour de votre gare, avez-vous installé une vélo-station (parking sécurisé comme à la gare Saint-Jean) ?
-                En complément, nous aimerions connaître le nombre d'arceaux qui ont été installés à proximité de la gare.<br>
+                <li>
+                    Autour de votre gare, avez-vous installé une vélo-station (parking sécurisé comme à la gare Saint-Jean) ?</li>
+                <li>
+                    Combien d'arceaux ont été installés à proximité de la gare ?
+                </li>
             {% endif %}
-        </p>
+        </ul>
+        <h3>
+            Point 4 sur l'apaisement des villes et centres-villes :
+        </h3>
         <p>
-            Le point 4 concerne l'apaisement des villes et centres-villes.
-            Nous avons joint à cette lettre une carte des zones 30 que nous vous prions de valider. Si des données
-            manquent, merci de les faire remonter à la métropole.<br>
             {% if data.isCity30 %}
                 Nous nous félicitons du passage en ville 30 pour {{ data.cityName }}.<br>
-            {% else %}
-                Nous aimerions également savoir si la circulation à 30km/h a été généralisée dans
-                votre ville et vos ambitions en la matière. Si non, est-ce qu'une évolution en ce sens est prévue ?<br>
             {% endif %}
             {% if data.hasEvolutionSecteurBorne or data.hasNewSecteurBorne %}
-                Félicitons {% if data.isCity30 %}également{% endif %} pour
+                Félicitations {% if data.isCity30 %}également{% endif %} pour
                 {% if data.hasEvolutionSecteurBorne and data.hasNewSecteurBorne %}
                     l'élargissement et l'installation d'un nouveau
                 {% elseif data.hasEvolutionSecteurBorne %}
@@ -76,37 +101,69 @@
                     l'installation d'un nouveau
                 {% endif %}
                 secteur borné afin d'apaiser la ville.
+            {% endif %}<br>
+            {% if data.isCity30 or data.hasEvolutionSecteurBorne or data.hasNewSecteurBorne %}
+            Aussi :
             {% endif %}
-            Avez-vous prévu d'élargir/d'installer de nouveaux secteurs bornés ?<br>
+        </p>
+        <ul>
+            <li>Nous avons joint à cette lettre une carte des zones 30 issue de
+                l’Open Data et que nous vous prions de bien vouloir confirmer ou
+                compléter si nécessaire. Si des données manquaient, nous vous
+                invitons ensuite à les faire remonter à la métropole.<br></li>
+            <li>
+                Avez-vous prévu d'élargir ou d'installer de nouveaux secteurs à
+                circulation restreinte (secteurs bornés, zones à trafic limité, etc) ?
+            </li>
+            <li>Pouvez-vous également de valider une carte des zones piétonnes
+                que nous avons généré à partir de la même source de données ?
+                Nous aimerions savoir quelles sont vos ambitions concernant
+                l'extension de ces zones.</li>
+            <li>Dernier élément de ce point 4, nous aimerions connaître l'évolution
+                du nombre de places de stationnement automobile en surface sur
+                votre commune. Quelles sont vos ambitions en la matière ?</li>
+        </ul>
 
-            Aussi, nous vous demandons également de valider une carte des zones piétonnes que nous avons généré à partir de la
-            même source de données. Nous aimerions savoir quelles sont vos ambitions concernant l'extension de ces zones.<br>
-            Dernier élément de ce point 4, nous aimerions connaître l’évolution du nombre de places de stationnement automobile
-            en surface sur votre commune. Quelles sont vos ambitions en la matière ?<br>
-        </p>
+        <h3>Point 5 sur la promotion d'une génération vélo :</h3>
         <p>
-            Enfin, le point 5 sur la promotion d'une génération vélo contient une multitude de petites actions.<br>
-            Nous aimerions savoir si le programme « savoir rouler à vélo » est en place dans les écoles de votre commune.<br>
-            Si ce n'est pas le cas, nous aimerions savoir à quelle échéance cette mesure est prévue.<br>
-            {% if data.nbRuesAuxEnfants > 0 %}
-                Nous avons identifié {{ data.nbRuesAuxEnfants }} dispositifs « rues aux enfants » (piétonisation
-                temporaire ou permanente) devant les écoles.
-            {% else %}
-                Nous n'avons identifié aucun dispositif « rues aux enfants » (piétonisation temporaire
-                ou permanente) devant les écoles.
-            {% endif %}
-            Néanmoins, ce dispositif n'étant pas toujours nécessaire (par exemple, en présence d'un parc devant l'entrée
-            de l'école), nous avons besoin de votre confirmation.
-            Quel est votre ambition en la matière ?<br>
-            Avez-vous mis en place du stationnement vélo dans ou devant les écoles ?<br>
-            Des prêts de vélo gratuits pour les enfants sont-ils possibles dans votre commune.<br>
-            Nous souhaitons également savoir quelles initiatives ont été développées pour le périscolaire et pour
-            les agents municipaux. Des excursions scolaires à pied ou à vélo ont-elles été favorisées ?<br>
-            Enfin, nous aimerions savoir si des initiatives de type vélobus ou pédibus ont été mises en place.
+            Ce point contient une multitude d'actions.<br>
         </p>
+        <ul>
+            <li>
+                Le programme « savoir rouler à vélo » est-il en place dans les écoles de votre commune ?
+                Si ce n'est pas le cas, nous aimerions savoir à quelle échéance cette mesure est prévue.<br>
+            </li>
+            <li>
+                {% if data.nbRuesAuxEnfants > 0 %}
+                    Nous avons identifié {{ data.nbRuesAuxEnfants }} dispositifs « rues aux enfants » (piétonisation
+                    temporaire ou permanente) devant les écoles.
+                {% else %}
+                    Nous n'avons identifié aucun dispositif « rues aux enfants » (piétonisation temporaire
+                    ou permanente) devant les écoles.
+                {% endif %}
+                Néanmoins, ce dispositif n'étant pas toujours nécessaire (par exemple, en présence d'un parc devant l'entrée
+                de l'école), nous avons besoin de votre confirmation.
+                Quel est votre ambition en la matière ?<br>
+            </li>
+            <li>
+                Avez-vous mis en place du stationnement vélo dans ou devant les écoles ?<br>
+            </li>
+            <li>
+                Des prêts de vélo gratuits pour les enfants sont-ils possibles dans votre commune ?<br>
+            </li>
+            <li>
+                Nous souhaitons également savoir quelles initiatives ont été développées pour le périscolaire et pour les agents municipaux, autour de la mobilité à vélo.
+            </li>
+            <li>
+                Des excursions scolaires à pied ou à vélo ont-elles été favorisées ?<br>
+            </li>
+            <li>
+                Enfin, nous aimerions savoir si des initiatives de type vélobus ou pédibus ont été mises en place.
+            </li>
+        </ul>
         <p>
-            Nous vous remercions pour votre collaboration et nous restons à votre disposition pour toute information complémentaire.<br>
-            Cordialement,
+            Nous vous remercions infiniment pour votre participation et nous restons à votre disposition pour toute information complémentaire.<br>
+            Très cordialement
         </p>
     </div>
 {% endblock %}
