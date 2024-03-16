@@ -1,3 +1,29 @@
-"genre","hasGare","hasBoulevard","hasNewSecteurBorne","hasEvolutionSecteurBorne","isCity30","cityName","nbRuesAuxEnfants"
-1,1,1,1,1,1,"Bordeaux",6
-1,1,1,0,0,0,"Le Bouscat",0
+genre,hasGare,hasBoulevard,hasNewSecteurBorne,hasEvolutionSecteurBorne,isCity30,cityName,nbRuesAuxEnfants
+1,0,0,0,0,0,Ambarès-et-Lagrave,0
+1,0,0,0,0,0,Ambès,0
+1,0,0,0,0,0,Artigues-près-Bordeaux,0
+1,1,0,0,0,0,Bassens,0
+1,1,1,0,0,1,Bègles,0
+0,1,0,0,0,0,Blanquefort,0
+1,1,1,1,1,1,Bordeaux,6
+1,0,0,0,0,0,Bouliac,0
+0,1,0,0,0,0,Bruges,0
+1,1,0,0,0,0,Carbon-Blanc,0
+1,1,0,0,0,1,Cenon,0
+0,0,0,0,0,0,Eysines,0
+1,0,0,0,0,1,Floirac,0
+1,0,0,0,0,0,Gradignan,0
+1,1,1,0,0,0,Le Bouscat,0
+0,0,0,0,0,0,Le Haillan,0
+1,0,0,0,0,0,Le Taillan-Médoc,0
+1,0,0,0,0,1,Lormont,0
+1,0,0,0,0,0,Martignas-sur-Jalle,0
+1,1,0,0,0,0,Mérignac,0
+0,1,0,0,0,0,Parempuyre,0
+1,1,0,0,0,0,Pessac,0
+1,0,0,0,0,0,Saint-Aubin de Médoc,0
+0,0,0,0,0,0,Saint-Louis-de-Montferrand,0
+1,0,0,0,0,0,Saint-Médard-en-Jalles,0
+1,0,0,0,0,0,Saint-Vincent-de-Paul,0
+1,1,1,0,0,0,Talence,0
+1,0,0,0,0,0,Villenave-d'Ornon,0

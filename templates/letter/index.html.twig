@@ -4,7 +4,8 @@
 
 {% block body %}
     <div class="container">
-        <img src="{{ absolute_url(asset('cropped-VELO-CITE-2023_couleur-horizontal-1.png')) }}" alt="">
+        <img src="https://velo-cite.org/wp-content/uploads/2023/10/cropped-VELO-CITE-2023_couleur-horizontal-1.png" width="318" height="113"  alt="">
+{#        <img src="{{ absolute_url(asset('cropped-VELO-CITE-2023_couleur-horizontal-1.png')) }}" alt="">#}
         <h1>
             Objet : Demande d'informations complémentaires concernant le plaidoyer vélo et la politique cyclable déployée par la mairie pour la réalisation d’un bilan intermédiaire de mandat
         </h1>
@@ -69,8 +70,8 @@
         <p>
             Je vous remercie par avance très vivement du temps que vous pourrez
             consacrer à bien vouloir nous communiquer ces informations au plus tard
-            pour le {{ data.dateRetourMax|date('d/m/Y') }}.
-            Détail des informations complémentaires demandées
+            pour le {{ data.dateRetourMax|date('d/m/Y') }}.<br>
+            <strong>Détail des informations complémentaires demandées</strong>
         </p>
         <h3>
             Point 3 sur l'intermodalité :
@@ -164,6 +165,8 @@
         </ul>
         <p>
             Nous vous remercions infiniment pour votre participation et nous restons à votre disposition pour toute information complémentaire.<br>
+        </p>
+        <p>
             Très cordialement
         </p>
     </div>

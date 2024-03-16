@@ -67,7 +67,7 @@ class GenerateLetterCommand extends Command
                             ])),
                         )
                     ,
-                    $this->parameterBag->get('kernel.project_dir').'generate-letter/'
+                    $this->parameterBag->get('kernel.project_dir').'/generate-letter'
                 );
             }
         }
