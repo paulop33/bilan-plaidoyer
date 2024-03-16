@@ -1,9 +1,9 @@
 genre,hasGare,hasBoulevard,hasNewSecteurBorne,hasEvolutionSecteurBorne,isCity30,cityName,nbRuesAuxEnfants
-1,0,0,0,0,0,Ambarès-et-Lagrave,0
-1,0,0,0,0,0,Ambès,0
-1,0,0,0,0,0,Artigues-près-Bordeaux,0
+1,1,0,0,0,0,AmbarÃ¨s-et-Lagrave,0
+1,0,0,0,0,0,AmbÃ¨s,0
+1,0,0,0,0,0,Artigues-prÃ¨s-Bordeaux,0
 1,1,0,0,0,0,Bassens,0
-1,1,1,0,0,1,Bègles,0
+1,1,1,0,0,1,BÃ¨gles,0
 0,1,0,0,0,0,Blanquefort,0
 1,1,1,1,1,1,Bordeaux,6
 1,0,0,0,0,0,Bouliac,0
@@ -15,15 +15,15 @@ genre,hasGare,hasBoulevard,hasNewSecteurBorne,hasEvolutionSecteurBorne,isCity30,
 1,0,0,0,0,0,Gradignan,0
 1,1,1,0,0,0,Le Bouscat,0
 0,0,0,0,0,0,Le Haillan,0
-1,0,0,0,0,0,Le Taillan-Médoc,0
+1,0,0,0,0,0,Le Taillan-MÃ©doc,0
 1,0,0,0,0,1,Lormont,0
 1,0,0,0,0,0,Martignas-sur-Jalle,0
-1,1,0,0,0,0,Mérignac,0
+1,1,0,0,0,0,MÃ©rignac,0
 0,1,0,0,0,0,Parempuyre,0
 1,1,0,0,0,0,Pessac,0
-1,0,0,0,0,0,Saint-Aubin de Médoc,0
+1,0,0,0,0,0,Saint-Aubin de MÃ©doc,0
 0,0,0,0,0,0,Saint-Louis-de-Montferrand,0
-1,0,0,0,0,0,Saint-Médard-en-Jalles,0
+1,0,0,0,0,0,Saint-MÃ©dard-en-Jalles,0
 1,0,0,0,0,0,Saint-Vincent-de-Paul,0
 1,1,1,0,0,0,Talence,0
 1,0,0,0,0,0,Villenave-d'Ornon,0
