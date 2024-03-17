@@ -1,13 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LetterController!{% endblock %}
-
 {% block body %}
     <div class="container">
-        <img src="https://velo-cite.org/wp-content/uploads/2023/10/cropped-VELO-CITE-2023_couleur-horizontal-1.png" width="318" height="113"  alt="">
-{#        <img src="{{ absolute_url(asset('cropped-VELO-CITE-2023_couleur-horizontal-1.png')) }}" alt="">#}
         <h1>
-            Objet : Demande d'informations complémentaires concernant le plaidoyer vélo et la politique cyclable déployée par la mairie pour la réalisation d’un bilan intermédiaire de mandat
+            Objet > Demande d'informations complémentaires concernant le plaidoyer vélo et la politique cyclable déployée par la mairie pour la réalisation d’un bilan intermédiaire de mandat
         </h1>
         <p>
             {% if data.genre == 0 %}
@@ -18,7 +14,7 @@
         </p>
         <p>
             L'association Vélo-Cité prépare un bilan sur l'évolution des mesures et des aménagements cyclables réalisés depuis le début du mandat. Ce bilan, qui
-            sera rendu public pour valoriser les politiques cyclables, s’appuiera sur les thèmes évoqués dans notre plaidoyer « la métropole à vélo », publié lors
+            sera rendu public pour valoriser les politiques cyclables, s’appuiera sur les thèmes évoqués dans notre plaidoyer «&nbsp;la métropole à vélo&nbsp;», publié lors
             de la campagne municipale de 2020.
         </p>
         <p>
@@ -49,7 +45,7 @@
             Les différents types d’aménagements cyclables seront pondérés avec une échelle de valeur reflétant la qualité effective des aménagements pour les cyclistes.
         </p>
         <p>
-            <strong>L’Open Data de Bordeaux Métropole</strong><br>
+            <h3>L’Open Data de Bordeaux Métropole</h3>
             Notre bilan sera majoritairement basé sur les données en Open Data de la
             métropole à date pour les valeurs concernées. Les données y seront
             extraites au plus tard le {{ data.dateExtract|date('d/m/Y') }} afin d'arrêter les calculs. Nous vous
@@ -59,7 +55,7 @@
         </p>
 
         <p>
-            <strong>Notre sollicitation pour compléter les informations</strong>
+            <h3>Notre sollicitation pour compléter les informations</h3>
             Afin de nous permettre de produire un bilan le plus complet et qualitatif
             possible, reflétant toutes vos actions en matière de politique cyclable et
             en évaluant plus finement la progression des mesures et des
@@ -71,8 +67,9 @@
             Je vous remercie par avance très vivement du temps que vous pourrez
             consacrer à bien vouloir nous communiquer ces informations au plus tard
             pour le {{ data.dateRetourMax|date('d/m/Y') }}.<br>
-            <strong>Détail des informations complémentaires demandées</strong>
         </p>
+
+        <h2>Détail des informations complémentaires demandées</h2>
         <h3>
             Point 3 sur l'intermodalité :
         </h3>
