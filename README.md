@@ -12,7 +12,7 @@ Le projet tourne via Docker, Gotenberg et Symfony/PHP.
 git clone git@github.com:paulop33/bilan-plaidoyer.git
 
 # lancement du docker (gotenberg)
-docker composer up
+docker compose up
 
 # téléchargement des dépendances
 composer install
