@@ -89,6 +89,7 @@
         <h3>
             Point 4 sur l'apaisement des villes et centres-villes :
         </h3>
+        {% if data.isCity30 or data.hasEvolutionSecteurBorne or data.hasNewSecteurBorne %}
         <p>
             {% if data.isCity30 %}
                 Nous nous félicitons du passage en ville 30 pour {{ data.cityName }}.<br>
@@ -108,6 +109,7 @@
             Aussi :
             {% endif %}
         </p>
+        {% endif %}
         <ul>
             <li>Nous avons joint à cette lettre une carte des zones 30 issue de
                 l’Open Data et que nous vous prions de bien vouloir confirmer ou

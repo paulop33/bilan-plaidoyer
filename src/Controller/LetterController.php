@@ -23,6 +23,7 @@ class LetterController extends AbstractController
                 'isCity30' => true,
                 'cityName' => 'Bordeaux',
                 'nbRuesAuxEnfants' => 6,
+                'nbRuesAuxEnfantsTemporaire' => 1,
             ]
         ]);
     }
