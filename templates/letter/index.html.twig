@@ -138,9 +138,21 @@
                 Si ce n'est pas le cas, nous aimerions savoir à quelle échéance cette mesure est prévue.<br>
             </li>
             <li>
-                {% if data.nbRuesAuxEnfants > 0 %}
-                    Nous avons identifié {{ data.nbRuesAuxEnfants }} dispositifs « rues aux enfants » (piétonisation
-                    temporaire ou permanente) devant les écoles.
+                {% if data.nbRuesAuxEnfants > 0 or data.nbRuesAuxEnfantsTemporaire > 0 %}
+                    Nous avons identifié
+                    {% if data.nbRuesAuxEnfants %}
+                        {{ data.nbRuesAuxEnfants }} {% if data.nbRuesAuxEnfants > 1 %}dispositifs permanents{% else %}dispositif permanent{% endif %}
+                        « rues aux enfants » (piétonisation)
+                    {% endif %}
+                    {% if data.nbRuesAuxEnfantsTemporaire and data.nbRuesAuxEnfants %}et{% endif %}
+                    {% if data.nbRuesAuxEnfantsTemporaire %}
+                        {{ data.nbRuesAuxEnfantsTemporaire }} {% if data.nbRuesAuxEnfantsTemporaire > 1 %}dispositifs temporaires{% else %}dispositif temporaire{% endif %}
+                        {% if data.nbRuesAuxEnfants == 0 %}
+                            « rues aux enfants » (piétonisation)
+                        {% endif %}
+                    {% endif %}
+
+                    devant les écoles.
                 {% else %}
                     Nous n'avons identifié aucun dispositif « rues aux enfants » (piétonisation temporaire
                     ou permanente) devant les écoles.
