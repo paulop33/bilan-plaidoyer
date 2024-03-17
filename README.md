@@ -22,7 +22,7 @@ composer install
 # Commande de génération des pdfs :
 
 ```
-php bin/console app:generate-letter data.csv
+php bin/console app:generate-letter data-lettre.csv
 ```
 
 
