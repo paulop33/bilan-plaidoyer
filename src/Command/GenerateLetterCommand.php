@@ -43,8 +43,8 @@ class GenerateLetterCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         $dates = [
-            'dateExtract' => new \DateTime('2024-03-01'),
-            'dateRetourMax' => new \DateTime('2024-04-01'),
+            'dateExtract' => new \DateTime('2024-04-30'),
+            'dateRetourMax' => new \DateTime('2024-04-15'),
         ];
 
         $apiUrl = 'http://localhost:3000/';
