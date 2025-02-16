@@ -1,0 +1,424 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        header {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .barometre-container {
+            width: 250px;
+            background: white;
+            border: 1px solid #1d3557;
+            padding: 0;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .barometre-header {
+            background: #0066cc;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+        .barometre-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .barometre-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .barometre-scale {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .barometre-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+            margin: 2px 0;
+            position: relative;
+            width: 100px;
+        }
+        .barometre-label:after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 0px;
+            width: 0;
+            height: 0;
+            border-top: 13px solid transparent;
+            border-left: 8px solid #000;
+            border-bottom: 13px solid transparent;
+            clear: both;
+        }
+
+        .barometre-label span {
+            flex: 2;
+        }
+        .barometre-label span.letter {
+            flex: 1;
+        }
+        /* Couleurs des catégories */
+        .barometre-a { background: #009966; }
+        .barometre-a:after { border-left-color: #009966; }
+        .barometre-b { background: #33CC33; width: 115px; }
+        .barometre-b:after { border-left-color: #33CC33; }
+        .barometre-c { background: #99CC33; width: 130px; }
+        .barometre-c:after { border-left-color: #99CC33; }
+        .barometre-d { background: #FFCC33; width: 145px; }
+        .barometre-d:after { border-left-color: #FFCC33; }
+        .barometre-e { background: #FFA500; width: 160px; }
+        .barometre-e:after { border-left-color: #FFA500; }
+        .barometre-f { background: #FF6600; width: 175px; }
+        .barometre-f:after { border-left-color: #FF6600; }
+        .barometre-g { background: #CC0000; width: 190px; }
+        .barometre-g:after { border-left-color: #CC0000; }
+
+        /* Indicateur noir avec triangle */
+        .barometre-indicator {
+            position: absolute;
+            right: -20px;
+            top: calc(5 * 30px + 10px); /* Ajustable selon la note */
+            transform: translateY(-50%);
+            background: black;
+            color: white;
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        .barometre-indicator::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            transform: translateY(-50%);
+            border-right: 10px solid black;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        .barometre-footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .bilan-des-actions {
+            display: flex;
+            width: 100%;
+            border: 1px solid #1d3557;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            justify-content: space-around;
+            .action {
+                border: 1px solid #1d3557;
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+                padding: 15px 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        .question-reponse {
+            border-bottom: 1px #1d3557 dashed;
+            display: flex;
+            flex-direction: row;
+            padding: 5px 0;
+            .info {
+                flex: 2;
+            }
+            .reponse {
+                flex: 1;
+            }
+            .question-legend {
+                font-style: italic;
+                font-size: small;
+            }
+        }
+    </style>
+{% endblock %}
+{% block menu %}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <header>
+            <div class="barometre-container">
+                <div class="barometre-header">Bilan mandat cyclable</div>
+                <div class="barometre-logo">
+                    <span class="barometre-title">{{ data.city }}</span>
+                </div>
+                <div class="barometre-scale">
+                    <div class="barometre-label barometre-a"><span>>45%</span> <span class="letter">A</span></div>
+                    <div class="barometre-label barometre-b"><span>35% - 45%</span> <span class="letter">B</span></div>
+                    <div class="barometre-label barometre-c"><span>25% - 35%</span> <span class="letter">C</span></div>
+                    <div class="barometre-label barometre-d"><span>15% - 25%</span> <span class="letter">D</span></div>
+                    <div class="barometre-label barometre-e"><span>5% - 15%</span> <span class="letter">E</span></div>
+                    <div class="barometre-label barometre-f"><span>1% - 5%</span> <span class="letter">F</span></div>
+                    <div class="barometre-label barometre-g"><span>< 0,01</span> <span class="letter">G</span></div>
+                </div>
+
+                <!-- Indicateur noir pour la note -->
+                <div class="barometre-indicator" style="top: calc({{ 1 - data.bilanGlobal.noteGlobaleAvecBonus }} * 203px + 80px);">{{ data.bilanGlobal.noteGlobaleAvecBonus * 100 }}% {{ data.bilanGlobal.noteLetter }}</div>
+
+                <div class="barometre-footer">
+                    Baromètre FUB 2021 : X
+                </div>
+            </div>
+            <div>
+                <h1>
+                    {{ data.city }}
+                </h1>
+                <h2>action du mandat 2020-2025</h2>
+                <img src="{{ asset('carte.png') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ asset('cropped-VELO-CITE-2023_couleur-horizontal-1.png') }}" width="164" height="56" alt="">
+            </div>
+        </header>
+        <h3>Bilan des actions</h3>
+        <div class="bilan-des-actions">
+            <div class="action">
+                X ({{ data.bilanGlobal.reve*100 }}%)<br>
+                ReVE<br>
+                <small>(note moyenne : x)</small>
+            </div>
+            <div class="action">
+                X ({{ data.bilanGlobal.amenagement*100 }}%)<br>
+                Aménagement<br>
+                <small>(note moyenne : x)</small>
+            </div>
+            <div class="action">
+                X ({{ data.bilanGlobal.intermodalite*100 }}%)<br>
+                Intermodalité<br>
+                <small>(note moyenne : x)</small>
+            </div>
+            <div class="action">
+                X ({{ data.bilanGlobal.villeApaisee*100 }}%)<br>
+                Ville apaisée<br>
+                <small>(note moyenne : x)</small>
+            </div>
+            <div class="action">
+                X ({{ data.bilanGlobal.generationVelo*100 }}%)<br>
+                Génération vélo<br>
+                <small>(note moyenne : x)</small>
+            </div>
+            <div class="action">
+                X ({{ data.bilanGlobal.autre*100 }}%)<br>
+                Action mairie<br>
+                <small>(note moyenne : x)</small>
+            </div>
+        </div>
+        <h3>Toutes les infos</h3>
+        <h4>ReVE</h4>
+        <h5>Correspondance du ReVE avec le plaidoyer Vélo-Cité</h5>
+        <div class="toutes-les-infos">
+            <div class="question-reponse">
+                <div class="info">
+                    Nombre de ligne :
+                    <div class="question-legend">
+                        (itinéraire correspondant aux attentes)
+                    </div>
+                </div>
+                <div class="reponse">
+                    {{ data.bilanReVE.nombreDeLigneCorrespondant }}
+                </div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">
+                    Desserte points d'intérêt majeur (gare, etc) :
+                </div>
+                <div class="reponse">
+                    {{ data.bilanReVE.dessertePointsInteretMajeur ? 'Oui' : 'Non' }}
+                </div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">
+                    Desserte centre-ville :
+                </div>
+                <div class="reponse">
+                    {{ data.bilanReVE.desserteCentreVille ? 'Oui' : 'Non' }}
+                </div>
+            </div>
+        </div>
+        <h5>Actions pour la construction du ReVE</h5>
+        <div class="toutes-les-infos">
+            <div class="question-reponse">
+                <div class="info">
+                    À l'étude
+                </div>
+                <div class="reponse">
+                    {{ data.bilanReVE.constructionALEtude ? 'Oui' : 'Non' }}
+                </div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">
+                    Entièrement à l'étude
+                </div>
+                <div class="reponse">
+                    {{ data.bilanReVE.constructionEntierementALEtude ? 'Oui' : 'Non' }}
+                </div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">
+                    Commencée
+                </div>
+                <div class="reponse">
+                    {{ data.bilanReVE.constructionCommencee ? 'Oui' : 'Non' }}
+                </div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">
+                    Terminée
+                </div>
+                <div class="reponse">
+                    {{ data.bilanReVE.constructionTerminee ? 'Oui' : 'Non' }}
+                </div>
+            </div>
+        </div>
+        <h4>Aménagement</h4>
+        <div class="toutes-les-infos">
+            <div class="question-reponse">
+                <div class="info">
+                    Note debut mandat
+                </div>
+                <div class="reponse">
+                    {{ data.bilanAmenagement.noteDebutMandat }}
+                </div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">
+                    Note fin mandat
+                </div>
+                <div class="reponse">
+                    {{ data.bilanAmenagement.noteFinMandat }}
+                </div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">
+                    Évolution sur le mandat
+                </div>
+                <div class="reponse">
+                    {{ data.bilanAmenagement.evolutionSurLeMandat * 100 }}%
+                </div>
+            </div>
+        </div>
+        <h4>Intermodalité</h4>
+        <div class="toutes-les-infos">
+            <div class="question-reponse">
+                <div class="info">P+V (vélostations projetées)</div>
+                <div class="reponse">{{ data.bilanIntermodalite.pVVelostationsProjetees ? 'Oui' : 'Non' }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">P+V (abri vélo)</div>
+                <div class="reponse">{{ data.bilanIntermodalite.pVAbriVelo ? 'Oui' : 'Non'  }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Gare - vélo station (avec intentions)</div>
+                <div class="reponse">{{ data.bilanIntermodalite.gareVeloStationAvecIntentions }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Gare - abris vélo</div>
+                <div class="reponse">{{ data.bilanIntermodalite.gareAbrisVelo }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Gare - Arceaux</div>
+                <div class="reponse">{{ data.bilanIntermodalite.gareArceaux }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Metstation</div>
+                <div class="reponse">{{ data.bilanIntermodalite.metstation ? 'Oui' : 'Non' }}</div>
+            </div>
+        </div>
+        <h4>Ville apaisée</h4>
+        <div class="toutes-les-infos">
+            <div class="question-reponse">
+                <div class="info">Nouveaux secteurs à circulation restreinte</div>
+                <div class="reponse">{{ data.bilanVilleApaisee.nouveauxSecteursCircuRestreinte ? 'Oui' : 'Non'  }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Plan de circulation</div>
+                <div class="reponse">{{ data.bilanVilleApaisee.planDeCirculation ? 'Oui' : 'Non'  }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Réduction du nombre de places de stationnement auto</div>
+                <div class="reponse">{{ data.bilanVilleApaisee.reductionStationnementAuto ? 'Oui' : 'Non'  }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Ville à 30</div>
+                <div class="reponse">{{ data.bilanVilleApaisee.villeA30 ? 'Oui' : 'Non'  }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Arceaux pour 1000 habitants (fin mandat)</div>
+                <div class="reponse">{{ data.bilanVilleApaisee.arceauxPour1000Hab }}</div>
+            </div>
+        </div>
+        <h4>Génération vélo</h4>
+        <div class="toutes-les-infos">
+            <div class="question-reponse">
+                <div class="info">Nombre de rues aux enfants</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.nbRuesAuxEnfant }} / {{ data.bilanGenerationVelo.nbEcoles }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Nombre de rues aux enfants futures</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.nbRuesAuxEnfantFuturs }} / {{ data.bilanGenerationVelo.nbEcoles - data.bilanGenerationVelo.nbRuesAuxEnfant }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Excursion</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.excursion ? 'Oui' : 'Non' }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Pédibus/velobus</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.pedibusVelobus ? 'Oui' : 'Non'  }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">SRAV</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.srav ? 'Oui' : 'Non'  }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Projets en cours (infos non exhaustives)</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.projetEnCours }}</div>
+            </div>
+        </div>
+        <h4>Action mairie (bonus pris en compte)</h4>
+        <div class="toutes-les-infos">
+            <div class="question-reponse">
+                <div class="info">Rencontre régulière asso</div>
+                <div class="reponse">{{ data.bilanActionsMairie.rencontreReguliereAsso ? 'Oui' : 'Non' }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Journée sensibilisation</div>
+                <div class="reponse">{{ data.bilanActionsMairie.journeeSensibilisation ? 'Oui' : 'Non' }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Plan vélo</div>
+                <div class="reponse">{{ data.bilanActionsMairie.planVelo ? 'Oui' : 'Non' }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Forfait mobilité agent</div>
+                <div class="reponse">{{ data.bilanActionsMairie.forfaitMobiliteAgent ? 'Oui' : 'Non' }}</div>
+            </div>
+            <div class="question-reponse">
+                <div class="info">Prêt vélo agent</div>
+                <div class="reponse">{{ data.bilanActionsMairie.pretVeloAgent ? 'Oui' : 'Non' }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

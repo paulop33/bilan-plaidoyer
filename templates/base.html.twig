@@ -72,6 +72,7 @@
     </head>
     <body>
         <div class="flex-container">
+            {% block menu %}
             <div class="menu">
                 <img src="{{ include('menu/data-menu.html.twig') }}" width="100" alt="">
                 <p>
@@ -122,6 +123,7 @@
                     Sous convention avec <br> Bordeaux Métropole
                 </p>
             </div>
+            {% endblock %}
             <div class="corps-lettre">
                 {% block body %}{% endblock %}
             </div>
