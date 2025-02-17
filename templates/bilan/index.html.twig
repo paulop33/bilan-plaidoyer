@@ -103,6 +103,13 @@
             border-radius: 5px;
             white-space: nowrap;
         }
+        .barometre-indicator--note-a {top: 91px;}
+        .barometre-indicator--note-b {top: 122px;}
+        .barometre-indicator--note-c {top: 154px;}
+        .barometre-indicator--note-d {top: 186px;}
+        .barometre-indicator--note-e {top: 219px;}
+        .barometre-indicator--note-f {top: 251px;}
+        .barometre-indicator--note-g {top: 283px;}
         .barometre-indicator::after {
             content: "";
             position: absolute;
@@ -176,8 +183,9 @@
                 </div>
 
                 <!-- Indicateur noir pour la note -->
-                <div class="barometre-indicator" style="top: calc({{ 1 - data.bilanGlobal.noteGlobaleAvecBonus }} * 203px + 80px);">{{ data.bilanGlobal.noteGlobaleAvecBonus * 100 }}% {{ data.bilanGlobal.noteLetter }}</div>
-
+                <div class="barometre-indicator barometre-indicator--note-{{ data.bilanGlobal.noteLetter|lower }}">
+                    {{ data.bilanGlobal.noteGlobaleAvecBonus * 100 }}% {{ data.bilanGlobal.noteLetter }}
+                </div>
                 <div class="barometre-footer">
                     Baromètre FUB 2021 : X
                 </div>
