@@ -10,9 +10,19 @@ use App\Model\BilanGlobalCity;
 use App\Model\BilanIntermodaliteCity;
 use App\Model\BilanReVECity;
 use App\Model\BilanVilleApaiseeCity;
+use PhpOffice\PhpSpreadsheet\Reader\Csv as ReaderCsv;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 class BilanCityGenerator
 {
+    const VILLE_FIELD_CSV = 'Ville';
+
+    public function __construct(
+        #[Autowire('%kernel.project_dir%')] private string $kernelProjectDir,
+    )
+    {
+
+    }
     public function loadBilanCity(string $city): BilanCity
     {
         return new BilanCity(
@@ -23,22 +33,25 @@ class BilanCityGenerator
             $this->createBilanVilleApaiseeCity(),
             $this->createBilanGenerationVeloCity(),
             $this->createBilanActionMairieCity(),
-            $this->createBilanGlobalCity(),
+            $this->createBilanGlobalCity($city),
         );
     }
 
-    public function createBilanGlobalCity(): BilanGlobalCity
+    public function createBilanGlobalCity(string $city): BilanGlobalCity
     {
+        $file = 'Bilan mandat (avec retour mairies) - Bilan global.csv';
+        $data = $this->loadInfosInFile($file, $city);
+
         return new BilanGlobalCity(
-            reve: 0.86,
-            amenagement: 0.86,
-            intermodalite: 0.86,
-            villeApaisee: 0.86,
-            generationVelo: 0.86,
-            autre: 0.86,
-            noteGlobaleSansBonus: 0.86,
-            noteGlobaleAvecBonus: 0.86,
-            noteLetter: 'A',
+            reve: (float)$data[BilanGlobalCity::REVE],
+            amenagement: (float)$data[BilanGlobalCity::AMENAGEMENTS],
+            intermodalite: (float)$data[BilanGlobalCity::INTERMODALITE],
+            villeApaisee: (float)$data[BilanGlobalCity::VILLE_APAISEE],
+            generationVelo: (float)$data[BilanGlobalCity::GENERATION_VELO],
+            autre: (float)$data[BilanGlobalCity::AUTRES],
+            noteGlobaleSansBonus: (float)$data[BilanGlobalCity::NOTE_GLOBALE_SANS_BONUS],
+            noteGlobaleAvecBonus: (float)$data[BilanGlobalCity::NOTE_GLOBALE_AVEC_BONUS],
+            noteLetter: $data[BilanGlobalCity::NOTE],
         );
     }
 
@@ -118,5 +131,26 @@ class BilanCityGenerator
             evolutionSurLeMandat: 0.86,
             noteAmenagement: 0.86,
         );
+    }
+
+    /**
+     * @throws \Exception
+     */
+    private function loadInfosInFile(string $file, string $city): array
+    {
+        $filename = $this->kernelProjectDir.'/csv-bilan/'.$file;
+        if (!file_exists($filename)) {
+            throw new \Exception('File does not exist');
+        }
+
+        $resource = fopen($filename, 'r');
+        $header = fgetcsv($resource, null, ';');
+        while (($data = fgetcsv($resource, null, ";")) !== FALSE) {
+            $dataCity = array_combine($header, $data);
+            if ($city === $dataCity[self::VILLE_FIELD_CSV]) {
+                return $dataCity;
+            }
+        }
+        throw new \Exception("City $city does not exist in $file");
     }
 }
