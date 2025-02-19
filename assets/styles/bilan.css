@@ -1,0 +1,165 @@
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.barometre-container {
+    width: 250px;
+    background: white;
+    border: 1px solid #1d3557;
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+.barometre-header {
+    background: #0066cc;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+.barometre-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+.barometre-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+.barometre-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.barometre-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin: 2px 0;
+    position: relative;
+    width: 100px;
+}
+.barometre-label:after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 8px solid #000;
+    border-bottom: 13px solid transparent;
+    clear: both;
+}
+
+.barometre-label span {
+    flex: 2;
+}
+.barometre-label span.letter {
+    flex: 1;
+}
+/* Couleurs des catégories */
+.barometre-a { background: #009966; }
+.barometre-a:after { border-left-color: #009966; }
+.barometre-b { background: #33CC33; width: 115px; }
+.barometre-b:after { border-left-color: #33CC33; }
+.barometre-c { background: #99CC33; width: 130px; }
+.barometre-c:after { border-left-color: #99CC33; }
+.barometre-d { background: #FFCC33; width: 145px; }
+.barometre-d:after { border-left-color: #FFCC33; }
+.barometre-e { background: #FFA500; width: 160px; }
+.barometre-e:after { border-left-color: #FFA500; }
+.barometre-f { background: #FF6600; width: 175px; }
+.barometre-f:after { border-left-color: #FF6600; }
+.barometre-g { background: #CC0000; width: 190px; }
+.barometre-g:after { border-left-color: #CC0000; }
+
+/* Indicateur noir avec triangle */
+.barometre-indicator {
+    position: absolute;
+    right: -20px;
+    top: calc(5 * 30px + 10px); /* Ajustable selon la note */
+    transform: translateY(-50%);
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+.barometre-indicator--note-a {top: 91px;}
+.barometre-indicator--note-b {top: 122px;}
+.barometre-indicator--note-c {top: 154px;}
+.barometre-indicator--note-d {top: 186px;}
+.barometre-indicator--note-e {top: 219px;}
+.barometre-indicator--note-f {top: 251px;}
+.barometre-indicator--note-g {top: 283px;}
+.barometre-indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    border-right: 10px solid black;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.barometre-footer {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.bilan-des-actions {
+    display: flex;
+    width: 100%;
+    border: 1px solid #1d3557;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    justify-content: space-around;
+    .action {
+        border: 1px solid #1d3557;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        padding: 15px 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.question-reponse {
+    border-bottom: 1px #1d3557 dashed;
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+    .info {
+        flex: 2;
+    }
+    .reponse {
+        flex: 1;
+    }
+    .question-legend {
+        font-style: italic;
+        font-size: small;
+    }
+}
+
+.gridCarte {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
