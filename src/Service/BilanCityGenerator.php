@@ -19,10 +19,9 @@ class BilanCityGenerator
 
     public function __construct(
         #[Autowire('%kernel.project_dir%')] private string $kernelProjectDir,
-    )
-    {
-
+    ) {
     }
+
     public function loadBilanCity(string $city): BilanCity
     {
         return new BilanCity(
@@ -43,14 +42,14 @@ class BilanCityGenerator
         $data = $this->loadInfosInFile($file, $city);
 
         return new BilanGlobalCity(
-            reve: floatval(str_replace(',', '.', $data[BilanGlobalCity::REVE])),
-            amenagement: floatval(str_replace(',', '.', $data[BilanGlobalCity::AMENAGEMENTS])),
-            intermodalite: floatval(str_replace(',', '.', $data[BilanGlobalCity::INTERMODALITE])),
-            villeApaisee: floatval(str_replace(',', '.', $data[BilanGlobalCity::VILLE_APAISEE])),
-            generationVelo: floatval(str_replace(',', '.', $data[BilanGlobalCity::GENERATION_VELO])),
-            autre: floatval(str_replace(',', '.', $data[BilanGlobalCity::AUTRES])),
-            noteGlobaleSansBonus: floatval(str_replace(',', '.', $data[BilanGlobalCity::NOTE_GLOBALE_SANS_BONUS])),
-            noteGlobaleAvecBonus: floatval(str_replace(',', '.', $data[BilanGlobalCity::NOTE_GLOBALE_AVEC_BONUS])),
+            reve: $this->getFloatval($data[BilanGlobalCity::REVE]),
+            amenagement: $this->getFloatval($data[BilanGlobalCity::AMENAGEMENTS]),
+            intermodalite: $this->getFloatval($data[BilanGlobalCity::INTERMODALITE]),
+            villeApaisee: $this->getFloatval($data[BilanGlobalCity::VILLE_APAISEE]),
+            generationVelo: $this->getFloatval($data[BilanGlobalCity::GENERATION_VELO]),
+            autre: $this->getFloatval($data[BilanGlobalCity::AUTRES]),
+            noteGlobaleSansBonus: $this->getFloatval($data[BilanGlobalCity::NOTE_GLOBALE_SANS_BONUS]),
+            noteGlobaleAvecBonus: $this->getFloatval($data[BilanGlobalCity::NOTE_GLOBALE_AVEC_BONUS]),
             noteLetter: $data[BilanGlobalCity::NOTE],
         );
     }
@@ -63,11 +62,11 @@ class BilanCityGenerator
             nbRuesAuxEnfant: (int)$data[BilanGenerationVeloCity::NBRUESAUXENFANT],
             nbRuesAuxEnfantFuturs: (int)$data[BilanGenerationVeloCity::NBRUESAUXENFANTFUTURS],
             nbEcoles: (int)$data[BilanGenerationVeloCity::NBECOLES],
-            excursion: (bool)$data[BilanGenerationVeloCity::EXCURSION],
-            pedibusVelobus: (bool)$data[BilanGenerationVeloCity::PEDIBUSVELOBUS],
-            srav: (bool)$data[BilanGenerationVeloCity::SRAV],
-            projetEnCours: (bool)$data[BilanGenerationVeloCity::PROJETENCOURS],
-            noteGenerationVelo: (float)$data[BilanGenerationVeloCity::NOTEGENERATIONVELO],
+            excursion: $this->getBool($data[BilanGenerationVeloCity::EXCURSION]),
+            pedibusVelobus: $this->getBool($data[BilanGenerationVeloCity::PEDIBUSVELOBUS]),
+            srav: $this->getBool($data[BilanGenerationVeloCity::SRAV]),
+            projetEnCours: $this->getBool($data[BilanGenerationVeloCity::PROJETENCOURS]),
+            noteGenerationVelo: $this->getFloatval($data[BilanGenerationVeloCity::NOTEGENERATIONVELO]),
         );
     }
 
@@ -77,13 +76,13 @@ class BilanCityGenerator
         $data = $this->loadInfosInFile($file, $city);
 
         return new BilanIntermodaliteCity(
-            pVVelostationsProjetees: (bool)$data[BilanIntermodaliteCity::P_V_VELOSTATIONS_PROJETEES],
-            pVAbriVelo: (bool)$data[BilanIntermodaliteCity::P_V_ABRI_VELO],
+            pVVelostationsProjetees: $this->getBool($data[BilanIntermodaliteCity::P_V_VELOSTATIONS_PROJETEES]),
+            pVAbriVelo: $this->getBool($data[BilanIntermodaliteCity::P_V_ABRI_VELO]),
             gareVeloStationAvecIntentions: (int)$data[BilanIntermodaliteCity::GARE_VELO_STATION_AVEC_INTENTIONS],
             gareAbrisVelo: (int)$data[BilanIntermodaliteCity::GARE_ABRIS_VELO],
             gareArceaux: (int)$data[BilanIntermodaliteCity::GARE_ARCEAUX],
-            metstation: (bool)$data[BilanIntermodaliteCity::METSTATION],
-            noteIntermodalite: floatval(str_replace(',', '.', $data[BilanIntermodaliteCity::NOTE_INTEMODALITE])),
+            metstation: $this->getBool($data[BilanIntermodaliteCity::METSTATION]),
+            noteIntermodalite: $this->getFloatval($data[BilanIntermodaliteCity::NOTE_INTEMODALITE]),
         );
     }
 
@@ -94,15 +93,15 @@ class BilanCityGenerator
 
         return new BilanReVECity(
             nombreDeLigneCorrespondant: (string)$data[BilanReVECity::CORRESPONDANCE_DU_REVE_AVEC_LE_PLAIDOYER_VELO_CITENOMBRE_DE_LIGNE_ITINERAIRE_CORRESPONDANT_AUX_ATTENTES],
-            dessertePointsInteretMajeur: (bool)$data[BilanReVECity::CORRESPONDANCE_DU_REVE_AVEC_LE_PLAIDOYER_VELO_CITEDESSERTE_POINTS_DINTERET_MAJEUR_GARE_ETC],
-            desserteCentreVille: (bool)$data[BilanReVECity::CORRESPONDANCE_DU_REVE_AVEC_LE_PLAIDOYER_VELO_CITEDESSERTE_CENTRE_VILLE],
-            noteProjetReve: floatval(str_replace(',', '.', $data[BilanReVECity::NOTE_PROJET_REVE])),
-            constructionALEtude: (bool)$data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVEALETUDE],
-            constructionEntierementALEtude: (bool)$data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVEENTIEREMENTALETUDE],
-            constructionCommencee: (bool)$data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVECOMMENCEE],
-            constructionTerminee: (bool)$data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVETERMINEE],
-            noteRealisationReVE: floatval(str_replace(',', '.', $data[BilanReVECity::NOTE_REALISATION_REVE])),
-            noteGlobalReVE: floatval(str_replace(',', '.', $data[BilanReVECity::NOTE_GLOBALE_REVE])),
+            dessertePointsInteretMajeur: $this->getBool($data[BilanReVECity::CORRESPONDANCE_DU_REVE_AVEC_LE_PLAIDOYER_VELO_CITEDESSERTE_POINTS_DINTERET_MAJEUR_GARE_ETC]),
+            desserteCentreVille: $this->getBool($data[BilanReVECity::CORRESPONDANCE_DU_REVE_AVEC_LE_PLAIDOYER_VELO_CITEDESSERTE_CENTRE_VILLE]),
+            constructionALEtude: $this->getBool($data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVEALETUDE]),
+            constructionEntierementALEtude: $this->getBool($data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVEENTIEREMENTALETUDE]),
+            constructionCommencee: $this->getBool($data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVECOMMENCEE]),
+            constructionTerminee: $this->getBool($data[BilanReVECity::ACTIONS_POUR_LA_CONSTRUCTION_DU_REVETERMINEE]),
+            noteGlobalReVE: $this->getFloatval($data[BilanReVECity::NOTE_GLOBALE_REVE]),
+            noteProjetReve: $this->getFloatval($data[BilanReVECity::NOTE_PROJET_REVE]),
+            noteRealisationReVE: $this->getFloatval($data[BilanReVECity::NOTE_REALISATION_REVE]),
         );
     }
 
@@ -112,12 +111,12 @@ class BilanCityGenerator
         $data = $this->loadInfosInFile($file, $city);
 
         return new BilanActionsMairieCity(
-            rencontreReguliereAsso: (bool)$data[BilanActionsMairieCity::RENCONTRE_REGULIERE_ASSO],
-            journeeSensibilisation: (bool)$data[BilanActionsMairieCity::JOURNEE_SENSIBILISATION],
-            planVelo: (bool)$data[BilanActionsMairieCity::PLAN_VELO],
-            forfaitMobiliteAgent: (bool)$data[BilanActionsMairieCity::FORFAIT_MOBILITE_AGENT],
-            pretVeloAgent: (bool)$data[BilanActionsMairieCity::PRET_VELO_AGENT],
-            noteActionMairie: floatval(str_replace(',', '.', $data[BilanActionsMairieCity::NOTE_ACTIONS_MAIRIES])),
+            rencontreReguliereAsso: $this->getBool($data[BilanActionsMairieCity::RENCONTRE_REGULIERE_ASSO]),
+            journeeSensibilisation: $this->getBool($data[BilanActionsMairieCity::JOURNEE_SENSIBILISATION]),
+            planVelo: $this->getBool($data[BilanActionsMairieCity::PLAN_VELO]),
+            forfaitMobiliteAgent: $this->getBool($data[BilanActionsMairieCity::FORFAIT_MOBILITE_AGENT]),
+            pretVeloAgent: $this->getBool($data[BilanActionsMairieCity::PRET_VELO_AGENT]),
+            noteActionMairie: $this->getFloatval($data[BilanActionsMairieCity::NOTE_ACTIONS_MAIRIES]),
         );
     }
 
@@ -127,23 +126,26 @@ class BilanCityGenerator
         $data = $this->loadInfosInFile($file, $city);
 
         return new BilanVilleApaiseeCity(
-            nouveauxSecteursCircuRestreinte: (bool)$data[BilanVilleApaiseeCity::FIELD_NOUVEAUXSECTEURSCIRCURESTREINTE],
-            planDeCirculation: (bool)$data[BilanVilleApaiseeCity::FIELD_PLANDECIRCULATION],
-            reductionStationnementAuto: (bool)$data[BilanVilleApaiseeCity::FIELD_REDUCTIONSTATIONNEMENTAUTO],
-            villeA30: (bool)$data[BilanVilleApaiseeCity::FIELD_VILLEA30],
-            arceauxPour1000Hab: floatval(str_replace(',', '.', $data[BilanVilleApaiseeCity::FIELD_ARCEAUXPOUR1000HAB])),
-            noteVilleApaisee: floatval(str_replace(',', '.', $data[BilanVilleApaiseeCity::FIELD_NOTEVILLEAPAISEE])),
+            nouveauxSecteursCircuRestreinte: $this->getBool($data[BilanVilleApaiseeCity::FIELD_NOUVEAUXSECTEURSCIRCURESTREINTE]),
+            planDeCirculation: $this->getBool($data[BilanVilleApaiseeCity::FIELD_PLANDECIRCULATION]),
+            reductionStationnementAuto: $this->getBool($data[BilanVilleApaiseeCity::FIELD_REDUCTIONSTATIONNEMENTAUTO]),
+            villeA30: $this->getBool($data[BilanVilleApaiseeCity::FIELD_VILLEA30]),
+            arceauxPour1000Hab: $this->getFloatval($data[BilanVilleApaiseeCity::FIELD_ARCEAUXPOUR1000HAB]),
+            noteVilleApaisee: $this->getFloatval($data[BilanVilleApaiseeCity::FIELD_NOTEVILLEAPAISEE]),
         );
     }
 
     public function createBilanAmenagementCity($city): BilanAmenagementCity
     {
+        $file = 'Bilan mandat (avec retour mairies) - 2 - Aménagements.csv';
+        $data = $this->loadInfosInFile($file, $city);
+
         return new BilanAmenagementCity(
-            noteDebutMandat: 0.86,
-            noteFinMandat: 0.86,
-            cyclabilite: 0.86,
-            evolutionSurLeMandat: 0.86,
-            noteAmenagement: 0.86,
+            noteDebutMandat: $this->getFloatval($data[BilanAmenagementCity::FIELD_NOTEDEBUTMANDAT]),
+            noteFinMandat: $this->getFloatval($data[BilanAmenagementCity::FIELD_NOTEFINMANDAT]),
+            cyclabilite: $this->getFloatval($data[BilanAmenagementCity::FIELD_CYCLABILITE]),
+            evolutionSurLeMandat: $this->getFloatval($data[BilanAmenagementCity::FIELD_EVOLUTIONSURLEMANDAT]),
+            noteAmenagement: $this->getFloatval($data[BilanAmenagementCity::FIELD_NOTEAMENAGEMENT]),
         );
     }
 
@@ -178,5 +180,21 @@ class BilanCityGenerator
             }
         }
         throw new \Exception("City $city does not exist in $file");
+    }
+
+    public function getFloatval($data): ?float
+    {
+        if ($data === null || $data === '' || $data === 'NC') {
+            return null;
+        }
+        return floatval(str_replace(',', '.', $data));
+    }
+
+    private function getBool($data): ?bool
+    {
+        if ($data === null || $data === '' || $data === 'NC') {
+            return null;
+        }
+        return $data === 'oui';
     }
 }
