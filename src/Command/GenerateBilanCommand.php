@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Service\BilanCityGenerator;
+use App\Service\ListCitiesFromCsv;
 use Gotenberg\Gotenberg;
 use Gotenberg\Stream;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -25,6 +26,7 @@ class GenerateBilanCommand extends Command
         private Environment $environment,
         private ParameterBagInterface $parameterBag,
         private BilanCityGenerator $bilanCityGenerator,
+        private ListCitiesFromCsv $listCitiesFromCsv,
     )
     {
         parent::__construct();
@@ -33,7 +35,7 @@ class GenerateBilanCommand extends Command
     protected function configure(): void
     {
         $this
-//            ->addArgument('fichier', InputArgument::REQUIRED, 'Fichier csv de Data')
+            ->addArgument('city', InputArgument::OPTIONAL, 'ville à générer')
 //            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;
     }
@@ -42,50 +44,38 @@ class GenerateBilanCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $dates = [
-            'dateExtract' => new \DateTime('2024-05-15'),
-            'dateRetourMax' => new \DateTime('2024-05-01'),
-        ];
+        if ($input->getArgument('city')) {
+            $city = $input->getArgument('city');
+            $this->generatePDFOf($city);
 
-        $bilanCity = $this->bilanCityGenerator->loadBilanCity('Bordeaux');
+            return Command::SUCCESS;
+        }
+
+        $cities = $this->listCitiesFromCsv->getCities();
+        foreach ($cities as $city) {
+            $io->info(sprintf('Génération de %s', $city));
+            $this->generatePDFOf($city);
+        }
+
+        return Command::SUCCESS;
+    }
+
+    private function generatePDFOf(string $city): void
+    {
         $apiUrl = 'http://localhost:3000/';
 
+        $bilanCity = $this->bilanCityGenerator->loadBilanCity($city);
         Gotenberg::save(
             Gotenberg::chromium($apiUrl)
                 ->pdf()
-                ->outputFilename('bilan'.$bilanCity->city)
+                ->outputFilename('bilan' . $bilanCity->city)
                 ->html(
                     Stream::string('content', $this->environment->render('bilan/index.html.twig', [
                         'data' => $bilanCity,
                     ])),
                 )
             ,
-            $this->parameterBag->get('kernel.project_dir').'/generate-bilan'
+            $this->parameterBag->get('kernel.project_dir') . '/generate-bilan'
         );
-
-//        $csv = $input->getArgument('fichier');
-//        if (($handle = fopen($csv, "r")) !== FALSE) {
-//            $header = fgetcsv($handle, 1000, ",");
-//            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-//                $dataCombine = array_combine($header, $data);
-//                Gotenberg::save(
-//                    Gotenberg::chromium($apiUrl)
-//                        ->pdf()
-//                        ->outputFilename($dataCombine['cityName'])
-//                        ->html(
-//                            Stream::string('content', $this->environment->render('letter/index.html.twig', [
-//                                'data' => array_merge(
-//                                    $dates,
-//                                    $dataCombine
-//                                )
-//                            ])),
-//                        )
-//                    ,
-//                    $this->parameterBag->get('kernel.project_dir').'/generate-letter'
-//                );
-//            }
-//        }
-
-        return Command::SUCCESS;
     }
 }

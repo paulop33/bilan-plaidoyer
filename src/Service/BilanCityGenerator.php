@@ -38,8 +38,7 @@ class BilanCityGenerator
 
     public function createBilanGlobalCity(string $city): BilanGlobalCity
     {
-        $file = 'Bilan mandat (avec retour mairies) - Bilan global.csv';
-        $data = $this->loadInfosInFile($file, $city);
+        $data = $this->loadInfosInFile(BilanGlobalCity::getCSVFile(), $city);
 
         return new BilanGlobalCity(
             reve: $this->getFloatval($data[BilanGlobalCity::REVE]),
@@ -56,40 +55,37 @@ class BilanCityGenerator
 
     public function createBilanGenerationVeloCity(string $city): BilanGenerationVeloCity
     {
-        $file = 'Bilan mandat (avec retour mairies) - 5 - Génération vélo.csv';
-        $data = $this->loadInfosInFile($file, $city);
+        $data = $this->loadInfosInFile(BilanGenerationVeloCity::getCSVFile(), $city);
         return new BilanGenerationVeloCity(
             nbRuesAuxEnfant: (int)$data[BilanGenerationVeloCity::NBRUESAUXENFANT],
             nbRuesAuxEnfantFuturs: (int)$data[BilanGenerationVeloCity::NBRUESAUXENFANTFUTURS],
             nbEcoles: (int)$data[BilanGenerationVeloCity::NBECOLES],
-            excursion: $this->getBool($data[BilanGenerationVeloCity::EXCURSION]),
             pedibusVelobus: $this->getBool($data[BilanGenerationVeloCity::PEDIBUSVELOBUS]),
             srav: $this->getBool($data[BilanGenerationVeloCity::SRAV]),
-            projetEnCours: $this->getBool($data[BilanGenerationVeloCity::PROJETENCOURS]),
             noteGenerationVelo: $this->getFloatval($data[BilanGenerationVeloCity::NOTEGENERATIONVELO]),
+            excursion: $this->getBool($data[BilanGenerationVeloCity::EXCURSION]),
+            projetEnCours: $this->getBool($data[BilanGenerationVeloCity::PROJETENCOURS]),
         );
     }
 
     public function createBilanIntermodaliteCity($city): BilanIntermodaliteCity
     {
-        $file = 'Bilan mandat (avec retour mairies) - 3 - Intermodalité.csv';
-        $data = $this->loadInfosInFile($file, $city);
+        $data = $this->loadInfosInFile(BilanIntermodaliteCity::getCSVFile(), $city);
 
         return new BilanIntermodaliteCity(
             pVVelostationsProjetees: $this->getBool($data[BilanIntermodaliteCity::P_V_VELOSTATIONS_PROJETEES]),
             pVAbriVelo: $this->getBool($data[BilanIntermodaliteCity::P_V_ABRI_VELO]),
+            metstation: $this->getBool($data[BilanIntermodaliteCity::METSTATION]),
+            noteIntermodalite: $this->getFloatval($data[BilanIntermodaliteCity::NOTE_INTEMODALITE]),
             gareVeloStationAvecIntentions: (int)$data[BilanIntermodaliteCity::GARE_VELO_STATION_AVEC_INTENTIONS],
             gareAbrisVelo: (int)$data[BilanIntermodaliteCity::GARE_ABRIS_VELO],
             gareArceaux: (int)$data[BilanIntermodaliteCity::GARE_ARCEAUX],
-            metstation: $this->getBool($data[BilanIntermodaliteCity::METSTATION]),
-            noteIntermodalite: $this->getFloatval($data[BilanIntermodaliteCity::NOTE_INTEMODALITE]),
         );
     }
 
     public function createBilanReVECity(string $city): BilanReVECity
     {
-        $file = 'Bilan mandat (avec retour mairies) - 1 - ReVE.csv';
-        $data = $this->loadInfosInFile($file, $city, true);
+        $data = $this->loadInfosInFile(BilanReVECity::getCSVFile(), $city, true);
 
         return new BilanReVECity(
             nombreDeLigneCorrespondant: (string)$data[BilanReVECity::CORRESPONDANCE_DU_REVE_AVEC_LE_PLAIDOYER_VELO_CITENOMBRE_DE_LIGNE_ITINERAIRE_CORRESPONDANT_AUX_ATTENTES],
@@ -107,8 +103,7 @@ class BilanCityGenerator
 
     public function createBilanActionMairieCity($city): BilanActionsMairieCity
     {
-        $file = 'Bilan mandat (avec retour mairies) - Actions mairies.csv';
-        $data = $this->loadInfosInFile($file, $city);
+        $data = $this->loadInfosInFile(BilanActionsMairieCity::getCSVFile(), $city);
 
         return new BilanActionsMairieCity(
             rencontreReguliereAsso: $this->getBool($data[BilanActionsMairieCity::RENCONTRE_REGULIERE_ASSO]),
@@ -122,8 +117,7 @@ class BilanCityGenerator
 
     public function createBilanVilleApaiseeCity($city): BilanVilleApaiseeCity
     {
-        $file = 'Bilan mandat (avec retour mairies) - 4 - Ville apaisée.csv';
-        $data = $this->loadInfosInFile($file, $city);
+        $data = $this->loadInfosInFile(BilanVilleApaiseeCity::getCSVFile(), $city);
 
         return new BilanVilleApaiseeCity(
             nouveauxSecteursCircuRestreinte: $this->getBool($data[BilanVilleApaiseeCity::FIELD_NOUVEAUXSECTEURSCIRCURESTREINTE]),
@@ -137,8 +131,7 @@ class BilanCityGenerator
 
     public function createBilanAmenagementCity($city): BilanAmenagementCity
     {
-        $file = 'Bilan mandat (avec retour mairies) - 2 - Aménagements.csv';
-        $data = $this->loadInfosInFile($file, $city);
+        $data = $this->loadInfosInFile(BilanAmenagementCity::getCSVFile(), $city);
 
         return new BilanAmenagementCity(
             noteDebutMandat: $this->getFloatval($data[BilanAmenagementCity::FIELD_NOTEDEBUTMANDAT]),

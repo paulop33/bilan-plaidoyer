@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class BilanReVECity
+class BilanReVECity implements FromCSVFile
 {
     const VILLE = "Ville";
     const CORRESPONDANCE_DU_REVE_AVEC_LE_PLAIDOYER_VELO_CITEATTENDUE = "Correspondance du ReVE avec le plaidoyer Vélo-Citéattendue";
@@ -16,6 +16,7 @@ class BilanReVECity
     const ACTIONS_POUR_LA_CONSTRUCTION_DU_REVETERMINEE = "Actions pour la construction du ReVEterminée";
     const NOTE_REALISATION_REVE = "Note réalisation ReVE";
     const NOTE_GLOBALE_REVE = "Note globale ReVE";
+    const FILE_CSV = 'Bilan mandat (avec retour mairies) - 1 - ReVE.csv';
 
     public function __construct(
         public string $nombreDeLigneCorrespondant,
@@ -30,5 +31,10 @@ class BilanReVECity
         public ?float $noteRealisationReVE = null,
     )
     {
+    }
+
+    public static function getCSVFile(): string
+    {
+        return self::FILE_CSV;
     }
 }

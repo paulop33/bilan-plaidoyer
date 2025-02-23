@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class BilanGlobalCity
+class BilanGlobalCity implements FromCSVFile
 {
     const REVE = "1 - ReVE";
     const AMENAGEMENTS = "2 - Aménagements";
@@ -14,6 +14,8 @@ class BilanGlobalCity
     const NOTE_GLOBALE_AVEC_BONUS = "Note globale \n(avec bonus)";
     const NOTE = "Note";
     const RANG = "Rang";
+    const FILE_CSV = 'Bilan mandat (avec retour mairies) - Bilan global.csv';
+
     public function __construct(
         public float $reve,
         public float $amenagement,
@@ -26,5 +28,10 @@ class BilanGlobalCity
         public string $noteLetter,
     )
     {
+    }
+
+    public static function getCSVFile(): string
+    {
+        return self::FILE_CSV;
     }
 }

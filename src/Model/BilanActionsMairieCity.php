@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class BilanActionsMairieCity
+class BilanActionsMairieCity implements FromCSVFile
 {
     const RENCONTRE_REGULIERE_ASSO = "rencontre régulière asso";
     const JOURNEE_SENSIBILISATION = "journée sensibilisation";
@@ -10,6 +10,8 @@ class BilanActionsMairieCity
     const FORFAIT_MOBILITE_AGENT = "forfait mobilité agent";
     const PRET_VELO_AGENT = "pret vélo agent";
     const NOTE_ACTIONS_MAIRIES = "Note actions mairies";
+
+    const FILE_CSV = 'Bilan mandat (avec retour mairies) - Actions mairies.csv';
 
     public function __construct(
         public bool $rencontreReguliereAsso,
@@ -20,5 +22,10 @@ class BilanActionsMairieCity
         public float $noteActionMairie,
     )
     {
+    }
+
+    public static function getCSVFile(): string
+    {
+        return self::FILE_CSV;
     }
 }
