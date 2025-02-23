@@ -10,8 +10,8 @@ class BilanGlobalCity implements FromCSVFile
     const VILLE_APAISEE = "4 - Ville apaisée";
     const GENERATION_VELO = "5 - Génération vélo";
     const AUTRES = "Autres";
-    const NOTE_GLOBALE_SANS_BONUS = "Note globale\n(sans bonus)";
-    const NOTE_GLOBALE_AVEC_BONUS = "Note globale \n(avec bonus)";
+    const NOTE_GLOBALE_SANS_BONUS = "Note globale (sans bonus)";
+    const NOTE_GLOBALE_AVEC_BONUS = "Note globale (avec bonus)";
     const NOTE = "Note";
     const RANG = "Rang";
     const FILE_CSV = 'Bilan mandat (avec retour mairies) - Bilan global.csv';
