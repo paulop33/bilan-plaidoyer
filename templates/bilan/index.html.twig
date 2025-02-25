@@ -83,9 +83,9 @@
             <div class="question-reponse">
                 <div class="info">
                     Nombre de ligne :
-                    <div class="question-legend">
+                    <p class="question-legend">
                         (itinéraire correspondant aux attentes)
-                    </div>
+                    </p>
                 </div>
                 <div class="reponse">
                     {{ data.bilanReVE.nombreDeLigneCorrespondant }}
@@ -93,7 +93,10 @@
             </div>
             <div class="question-reponse">
                 <div class="info">
-                    Desserte points d'intérêt majeur (gare, etc) :
+                    Desserte des points d'intérêt majeur :
+                    <p class="question-legend">
+                        (gare, mairie, différents lieux de la ville, etc.)
+                    </p>
                 </div>
                 <div class="reponse">
                     {{ data.bilanReVE.dessertePointsInteretMajeur ? 'Oui' : 'Non' }}
@@ -108,11 +111,17 @@
                 </div>
             </div>
         </div>
-        <h5>Actions pour la construction du ReVE</h5>
+        <h5 class="with-question-legend">Actions pour la construction du ReVE</h5>
+        <p class="question-legend">
+            (études reçues par Vélo-Cité aux 01/03/2025)
+        </p>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">
                     À l'étude
+                    <p class="question-legend">
+                        (au moins un tronçon du ReVE est à l'étude)
+                    </p>
                 </div>
                 <div class="reponse">
                     {{ data.bilanReVE.constructionALEtude ? 'Oui' : 'Non' }}
@@ -129,6 +138,9 @@
             <div class="question-reponse">
                 <div class="info">
                     Commencée
+                    <p class="question-legend">
+                        (des travaux ont commencé pour le déploiement du réseau)
+                    </p>
                 </div>
                 <div class="reponse">
                     {{ data.bilanReVE.constructionCommencee ? 'Oui' : 'Non' }}
@@ -137,13 +149,22 @@
             <div class="question-reponse">
                 <div class="info">
                     Terminée
+                    <p class="question-legend">
+                        (l'ensemble du réseau est terminé pour la ville)
+                    </p>
                 </div>
                 <div class="reponse">
                     {{ data.bilanReVE.constructionTerminee ? 'Oui' : 'Non' }}
                 </div>
             </div>
         </div>
-        <h4>Aménagement</h4>
+        <h4 class="with-question-legend">Aménagement</h4>
+        <p class="question-legend">
+            - Notes calculées par Vélo-Cité en se basant sur l'Open Data de Bordeaux Métropole<br>
+            - Différents facteurs jouent sur les notes (le type d'aménagement, le linéaire total, etc.).<br>
+            - Les notes ne sont pas forcément comparables entre les villes.<br>
+            - Barème : 1 pour les bandes cyclables, 2 pour les voies vertes, 3 pour les voies bleues, 4 pour les pistes cyclables, 0 pour une rue sans aménagement.<br>
+        </p>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">
@@ -173,15 +194,27 @@
         <h4>Intermodalité</h4>
         <div class="toutes-les-infos">
             <div class="question-reponse">
-                <div class="info">P+V (vélostations projetées)</div>
+                <div class="info">Parking P+V (Vélostations projetées)
+                    <p class="question-legend">
+                        Présence d'un bâtiment avec service pour cyclistes, où l'on arrivera en voiture pour repartir à vélo)
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanIntermodalite.pVVelostationsProjetees ? 'Oui' : 'Non' }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">P+V (abri vélo)</div>
+                <div class="info">Parking P+V (abri vélo)
+                    <p class="question-legend">
+                        Présence d'un simple abri vélo (sans confort) en gare.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanIntermodalite.pVAbriVelo ? 'Oui' : 'Non'  }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Gare - vélo station (avec intentions)</div>
+                <div class="info">Gare - vélo station (avec intentions)
+                    <p class="question-legend">
+                        Nombre de places de stationnement vélo dans un bâtiment de la gare.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanIntermodalite.gareVeloStationAvecIntentions }}</div>
             </div>
             <div class="question-reponse">
@@ -193,18 +226,30 @@
                 <div class="reponse">{{ data.bilanIntermodalite.gareArceaux }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Metstation</div>
+                <div class="info">Metstation
+                    <p class="question-legend">
+                        <a href="https://www.mtpk.fr/service/metstation/">https://www.mtpk.fr/service/metstation/</a>
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanIntermodalite.metstation ? 'Oui' : 'Non' }}</div>
             </div>
         </div>
         <h4>Ville apaisée</h4>
         <div class="toutes-les-infos">
             <div class="question-reponse">
-                <div class="info">Nouveaux secteurs à circulation restreinte</div>
+                <div class="info">Nouveaux secteurs à circulation restreinte
+                    <p class="question-legend">
+                        Nouvelles zones sans véhicules motorisés.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanVilleApaisee.nouveauxSecteursCircuRestreinte ? 'Oui' : 'Non'  }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Plan de circulation</div>
+                <div class="info">Plan de circulation
+                    <p class="question-legend">
+                        Plan de circulation ayant pour objectif de réduire / supprimer le trafic de transit.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanVilleApaisee.planDeCirculation ? 'Oui' : 'Non'  }}</div>
             </div>
             <div class="question-reponse">
@@ -216,57 +261,84 @@
                 <div class="reponse">{{ data.bilanVilleApaisee.villeA30 ? 'Oui' : 'Non'  }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Arceaux pour 1000 habitants (fin mandat)</div>
+                <div class="info">Arceaux pour 1000 habitants</div>
                 <div class="reponse">{{ data.bilanVilleApaisee.arceauxPour1000Hab }}</div>
             </div>
         </div>
         <h4>Génération vélo</h4>
         <div class="toutes-les-infos">
             <div class="question-reponse">
-                <div class="info">Nombre de rues aux enfants</div>
+                <div class="info">Nombre de rues aux enfants
+                    <p class="question-legend">
+                        Écoles dont les rues sont (temporairement) fermées aux voitures / Nombre total d'écoles
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanGenerationVelo.nbRuesAuxEnfant }} / {{ data.bilanGenerationVelo.nbEcoles }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Nombre de rues aux enfants futures</div>
+                <div class="info">Nombre de rues aux enfants futures
+                    <p class="question-legend">
+                        Écoles prochainement sans voiture / Nombre total d'écoles sans rue aux enfants, aujourd'hui
+                    </p></div>
                 <div class="reponse">{{ data.bilanGenerationVelo.nbRuesAuxEnfantFuturs }} / {{ data.bilanGenerationVelo.nbEcoles - data.bilanGenerationVelo.nbRuesAuxEnfant }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Excursion</div>
+                <div class="info">Excursion à vélo</div>
                 <div class="reponse">{{ data.bilanGenerationVelo.excursion ? 'Oui' : 'Non' }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Pédibus/velobus</div>
+                <div class="info">Pédibus/vélobus
+                    <p class="question-legend">
+                        Ramassage scolaire à pied ou à vélo.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanGenerationVelo.pedibusVelobus ? 'Oui' : 'Non'  }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">SRAV</div>
+                <div class="info">SRAV
+                    <p class="question-legend">
+                        Déploiement du dispositif « Savoir Rouler à Vélo » dans les écoles.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanGenerationVelo.srav ? 'Oui' : 'Non'  }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Projets en cours (infos non exhaustives)</div>
+                <div class="info">Projets en cours (SRAV)</div>
                 <div class="reponse">{{ data.bilanGenerationVelo.projetEnCours }}</div>
             </div>
         </div>
         <h4>Action mairie (bonus pris en compte)</h4>
         <div class="toutes-les-infos">
             <div class="question-reponse">
-                <div class="info">Rencontre régulière asso</div>
+                <div class="info">Rencontre régulière association vélo
+                    <p class="question-legend">
+                        Rencontre régulière avec Vélo-Cité ou une autre maison du vélo.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanActionsMairie.rencontreReguliereAsso ? 'Oui' : 'Non' }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Journée sensibilisation</div>
+                <div class="info">Journée sensibilisation
+                    <p class="question-legend">
+                        Journée de sensibilisation à la pratique du vélo.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanActionsMairie.journeeSensibilisation ? 'Oui' : 'Non' }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Plan vélo</div>
+                <div class="info">Plan vélo
+                    <p class="question-legend">
+                        Plan vélo à l'échelle de la ville.
+                    </p>
+                </div>
                 <div class="reponse">{{ data.bilanActionsMairie.planVelo ? 'Oui' : 'Non' }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Forfait mobilité agent</div>
+                <div class="info">Forfait mobilité auprès des agent·es</div>
                 <div class="reponse">{{ data.bilanActionsMairie.forfaitMobiliteAgent ? 'Oui' : 'Non' }}</div>
             </div>
             <div class="question-reponse">
-                <div class="info">Prêt vélo agent</div>
+                <div class="info">Prêt vélo auprès des agent·es</div>
                 <div class="reponse">{{ data.bilanActionsMairie.pretVeloAgent ? 'Oui' : 'Non' }}</div>
             </div>
         </div>

@@ -153,8 +153,20 @@ header {
     .question-legend {
         font-style: italic;
         font-size: small;
+        margin: 0;
     }
 }
+
+h4.with-question-legend,
+h5.with-question-legend {
+    margin-bottom: 0;
+    &+.question-legend {
+        font-style: italic;
+        font-size: small;
+        margin: 0 0 1rem;
+    }
+}
+
 
 .gridCarte {
     display: grid;
