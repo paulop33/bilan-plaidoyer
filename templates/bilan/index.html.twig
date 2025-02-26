@@ -8,9 +8,9 @@
 
 {% block body %}
     <div class="container">
+        <h1>Bilan mandat cyclable</h1>
         <header>
             <div class="barometre-container">
-                <div class="barometre-header">Bilan mandat cyclable</div>
                 <div class="barometre-logo">
                     <span class="barometre-title">{{ data.city }}</span>
                 </div>
@@ -33,17 +33,17 @@
                 </div>
             </div>
             <div>
-                <h1>
-                    {{ data.city }}
-                </h1>
-                <h2>action du mandat 2020-2025</h2>
+{#                <h1>#}
+{#                    {{ data.city }}#}
+{#                </h1>#}
+                <h2>Actions du mandat 2020-2025</h2>
                 <img src="{{ asset('carte.png') }}" alt="">
             </div>
             <div>
-                <img src="{{ asset('cropped-VELO-CITE-2023_couleur-horizontal-1.png') }}" width="164" height="56" alt="">
+                <img src="https://velo-cite.org/wp-content/uploads/2023/10/cropped-VELO-CITE-2023_couleur-horizontal-1.png" width="164" height="56" alt="">
             </div>
         </header>
-        <h3>Bilan des actions</h3>
+        <h2>Bilan des actions</h2>
         <div class="bilan-des-actions">
             <div class="action">
                 X ({{ data.bilanGlobal.reve }}%)<br>
@@ -76,9 +76,12 @@
                 <small>(note moyenne : x)</small>
             </div>
         </div>
-        <h3>Toutes les infos</h3>
-        <h4>ReVE</h4>
-        <h5>Correspondance du ReVE avec le plaidoyer Vélo-Cité</h5>
+        <h2>Toutes les infos</h2>
+        <h3>ReVE</h3>
+        <h4 class="with-question-legend">Correspondance du ReVE avec le plaidoyer Vélo-Cité</h4>
+        <p class="question-legend">
+            (études reçues par Vélo-Cité aux 01/03/2025)
+        </p>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">
@@ -111,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <h5 class="with-question-legend">Actions pour la construction du ReVE</h5>
+        <h4 class="with-question-legend">Actions pour la construction du ReVE</h4>
         <p class="question-legend">
             (études reçues par Vélo-Cité aux 01/03/2025)
         </p>
@@ -158,13 +161,13 @@
                 </div>
             </div>
         </div>
-        <h4 class="with-question-legend">Aménagement</h4>
-        <p class="question-legend">
-            - Notes calculées par Vélo-Cité en se basant sur l'Open Data de Bordeaux Métropole<br>
-            - Différents facteurs jouent sur les notes (le type d'aménagement, le linéaire total, etc.).<br>
-            - Les notes ne sont pas forcément comparables entre les villes.<br>
-            - Barème : 1 pour les bandes cyclables, 2 pour les voies vertes, 3 pour les voies bleues, 4 pour les pistes cyclables, 0 pour une rue sans aménagement.<br>
-        </p>
+        <h3 class="with-question-legend">Aménagement</h3>
+        <ul class="question-legend">
+            <li> Notes calculées par Vélo-Cité en se basant sur l'Open Data de Bordeaux Métropole</li>
+            <li> Différents facteurs jouent sur les notes (le type d'aménagement, le linéaire total, etc.).</li>
+            <li> Les notes ne sont pas forcément comparables entre les villes.</li>
+            <li> Barème : 1 pour les bandes cyclables, 2 pour les voies vertes, 3 pour les voies bleues, 4 pour les pistes cyclables, 0 pour une rue sans aménagement.</li>
+        </ul>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">
@@ -191,7 +194,7 @@
                 </div>
             </div>
         </div>
-        <h4>Intermodalité</h4>
+        <h3>Intermodalité</h3>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">Parking P+V (Vélostations projetées)
@@ -234,7 +237,7 @@
                 <div class="reponse">{{ data.bilanIntermodalite.metstation ? 'Oui' : 'Non' }}</div>
             </div>
         </div>
-        <h4>Ville apaisée</h4>
+        <h3>Ville apaisée</h3>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">Nouveaux secteurs à circulation restreinte
@@ -307,7 +310,7 @@
                 <div class="reponse">{{ data.bilanGenerationVelo.projetEnCours }}</div>
             </div>
         </div>
-        <h4>Action mairie (bonus pris en compte)</h4>
+        <h3>Action mairie (bonus pris en compte)</h3>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">Rencontre régulière association vélo
