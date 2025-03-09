@@ -2,6 +2,39 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <style>
+        @font-face {
+            font-family: 'SansForgetica';
+            src: url('/fonts/SansForgetica-Regular.otf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ProspectusPro';
+            src: url('/fonts/ProspectusProLDEMO-Regular.otf') format('opentype');
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'ProspectusPro';
+            src: url('/fonts/ProspectusProLDEMO-BlackItalic.otf') format('opentype');
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Lehigh_Personal';
+            src: url('/fonts/Lehigh-Personal-Regular.otf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Built Titling';
+            src: url('/fonts/built-titling-rg.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Built Titling';
+            src: url('/fonts/built-titling-rg-it.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+    </style>
     <link rel="stylesheet" href="{{ asset('styles/bilan.css') }}">
 {% endblock %}
 {% block menu %}{% endblock %}
@@ -9,6 +42,10 @@
 {% block body %}
     <div class="container">
         <h1>Bilan mandat cyclable</h1>
+        <div class="floatright">
+            <img src="https://velo-cite.org/wp-content/uploads/2023/10/cropped-VELO-CITE-2023_couleur-horizontal-1.png" width="164" height="56" alt="">
+        </div>
+        <h2>Actions du mandat 2020-2025 de {{ data.city }}</h2>
         <header>
             <div class="barometre-container">
                 <div class="barometre-logo">
@@ -29,49 +66,45 @@
                     {{ data.bilanGlobal.noteGlobaleAvecBonus }}% {{ data.bilanGlobal.noteLetter }}
                 </div>
                 <div class="barometre-footer">
-                    Baromètre FUB 2021 : X
+                    Baromètre FUB 2021 : {{ data.noteBarometre2021() }}*<br>
+                    <small>*Barème différent</small>
                 </div>
             </div>
             <div>
 {#                <h1>#}
 {#                    {{ data.city }}#}
 {#                </h1>#}
-                <h2>Actions du mandat 2020-2025</h2>
-                <img src="{{ asset('carte.png') }}" alt="">
-            </div>
-            <div>
-                <img src="https://velo-cite.org/wp-content/uploads/2023/10/cropped-VELO-CITE-2023_couleur-horizontal-1.png" width="164" height="56" alt="">
+                <img src="{{ asset('Carte BxM-01.jpg') }}" alt="" height="auto" width="300">
             </div>
         </header>
         <h2>Bilan des actions</h2>
         <div class="bilan-des-actions">
             <div class="action">
-                X ({{ data.bilanGlobal.reve }}%)<br>
+                {{ data.bilanGlobal.reve }}%<br>
                 ReVE<br>
                 <small>(note moyenne : x)</small>
             </div>
             <div class="action">
-                X ({{ data.bilanGlobal.amenagement }}%)<br>
+                {{ data.bilanGlobal.amenagement }}%<br>
                 Aménagement<br>
-                <small>(note moyenne : x)</small>
             </div>
             <div class="action">
-                X ({{ data.bilanGlobal.intermodalite }}%)<br>
+                {{ data.bilanGlobal.intermodalite }}%<br>
                 Intermodalité<br>
                 <small>(note moyenne : x)</small>
             </div>
             <div class="action">
-                X ({{ data.bilanGlobal.villeApaisee }}%)<br>
+                {{ data.bilanGlobal.villeApaisee }}%<br>
                 Ville apaisée<br>
                 <small>(note moyenne : x)</small>
             </div>
             <div class="action">
-                X ({{ data.bilanGlobal.generationVelo }}%)<br>
+                {{ data.bilanGlobal.generationVelo }}%<br>
                 Génération vélo<br>
                 <small>(note moyenne : x)</small>
             </div>
             <div class="action">
-                X ({{ data.bilanGlobal.autre }}%)<br>
+                {{ data.bilanGlobal.autre }}%<br>
                 Action mairie<br>
                 <small>(note moyenne : x)</small>
             </div>
@@ -161,12 +194,13 @@
                 </div>
             </div>
         </div>
+        <div style='page-break-after: always;'> </div>
         <h3 class="with-question-legend">Aménagement</h3>
         <ul class="question-legend">
             <li> Notes calculées par Vélo-Cité en se basant sur l'Open Data de Bordeaux Métropole</li>
             <li> Différents facteurs jouent sur les notes (le type d'aménagement, le linéaire total, etc.).</li>
             <li> Les notes ne sont pas forcément comparables entre les villes.</li>
-            <li> Barème : 1 pour les bandes cyclables, 2 pour les voies vertes, 3 pour les voies bleues, 4 pour les pistes cyclables, 0 pour une rue sans aménagement.</li>
+            <li> Barème : 1 pour les bandes cyclables, 2 pour les voies vertes, 3 pour les voies bleues, 4 pour les pistes cyclables, 0 pour une rue sans aménagement. @PIERRE j'ai besoin de ton aide</li>
         </ul>
         <div class="toutes-les-infos">
             <div class="question-reponse">
@@ -190,7 +224,7 @@
                     Évolution sur le mandat
                 </div>
                 <div class="reponse">
-                    {{ data.bilanAmenagement.evolutionSurLeMandat * 100 }}%
+                    {{ data.bilanAmenagement.evolutionSurLeMandat|round }}%
                 </div>
             </div>
         </div>
@@ -268,7 +302,7 @@
                 <div class="reponse">{{ data.bilanVilleApaisee.arceauxPour1000Hab }}</div>
             </div>
         </div>
-        <h4>Génération vélo</h4>
+        <h3>Génération vélo</h3>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">Nombre de rues aux enfants
@@ -350,41 +384,41 @@
         <h2>Carte du mandat</h2>
         <div class="gridCarte">
             <div>
-                <h3>Bordeaux_aires_pietonnes.png</h3>
+                <h3>Aires piétonnes</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_aires_pietonnes.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
-                <h3>Bordeaux_bandes_cyclables_double_sens.png</h3>
+                <h3>Bandes cyclables double sens</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
-                <h3>Bordeaux_bandes_cyclables.png</h3>
+                <h3>Bandes cyclables</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
-                <h3>Bordeaux_bandes_cyclables_simple.png</h3>
+                <h3>Bandes cyclables simples</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_simple.png') }}" width="100%" height="auto" alt="" />
                 <div style='page-break-after: always;'> </div>
             </div>
             <div>
-                <h3>Bordeaux_couloirs_bus.png</h3>
+                <h3>Bordeaux couloirs bus</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_couloirs_bus.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
-                <h3>Bordeaux_dsc.png</h3>
+                <h3>Double sens cyclable</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_dsc.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
-                <h3>Bordeaux_pistes_cyclables_contre_sens.png</h3>
+                <h3>Pistes cyclables en contre sens</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_contre_sens.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
-                <h3>Bordeaux_pistes_cyclables_double_sens.png</h3>
+                <h3>Pistes cyclables double sens</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />
                 <div style='page-break-after: always;'> </div>
             </div>
             <div>
-                <h3>Bordeaux_pistes_cyclables.png</h3>
+                <h3>Pistes cyclables</h3>
                 <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables.png') }}" width="100%" height="auto" alt="" />
             </div>
 {#            <div>#}

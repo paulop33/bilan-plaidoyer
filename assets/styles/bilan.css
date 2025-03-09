@@ -1,7 +1,7 @@
 header {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .barometre-container {
     width: 250px;
@@ -138,6 +138,7 @@ header {
         flex-direction: column;
         justify-content: center;
         background-color: white;
+        text-align: center;
     }
 }
 
@@ -178,37 +179,37 @@ h4.with-question-legend {
     grid-row-gap: 0px;
 }
 
-@font-face {
-    font-family: 'SansForgetica';
-    src: url('SansForgetica-Regular.otf') format('truetype');
-}
-@font-face {
-    font-family: 'ProspectusPro';
-    src: url('ProspectusProLDEMO-Regular.otf') format('opentype');
-    font-style: normal;
-}
-@font-face {
-    font-family: 'ProspectusPro';
-    src: url('ProspectusProLDEMO-BlackItalic.otf') format('opentype');
-    font-style: italic;
-}
+/*@font-face {*/
+/*    font-family: 'SansForgetica';*/
+/*    src: url('https://github.com/paulop33/bilan-plaidoyer/raw/refs/heads/main/assets/styles/SansForgetica-Regular-QwHnrsx.otf') format('truetype');*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'ProspectusPro';*/
+/*    src: url('https://github.com/paulop33/bilan-plaidoyer/raw/refs/heads/main/assets/styles/ProspectusProLDEMO-Regular-61sWcPg.otf') format('opentype');*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'ProspectusPro';*/
+/*    src: url('https://github.com/paulop33/bilan-plaidoyer/raw/refs/heads/main/assets/styles/ProspectusProLDEMO-BlackItalic-2Mp9Hgv.otf') format('opentype');*/
+/*    font-style: italic;*/
+/*}*/
 
-@font-face {
-    font-family: 'Lehigh_Personal';
-    src: url('Lehigh-Personal-Regular.otf') format('truetype');
-}
-@font-face {
-    font-family: 'Built Titling';
-    src: url('built-titling-rg.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Built Titling';
-    src: url('built-titling-rg-it.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
+/*@font-face {*/
+/*    font-family: 'Lehigh_Personal';*/
+/*    src: url('https://github.com/paulop33/bilan-plaidoyer/raw/refs/heads/main/assets/styles/Lehigh-Personal-Regular-ELNnqOf.otf') format('truetype');*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Built Titling';*/
+/*    src: url('https://github.com/paulop33/bilan-plaidoyer/raw/refs/heads/main/assets/styles/built-titling-rg-QmFYjNH.ttf') format('truetype');*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Built Titling';*/
+/*    src: url('https://github.com/paulop33/bilan-plaidoyer/raw/refs/heads/main/assets/styles/built-titling-rg-it-2YzKp99.ttf') format('truetype');*/
+/*    font-weight: normal;*/
+/*    font-style: italic;*/
+/*}*/
 h1 {
     margin: 0;
     font-family: "SansForgetica", sans-serif !important;
@@ -232,5 +233,14 @@ body {
 }
 .question-legend {
     /*font-family: "Built Titling", sans-serif !important;*/
+    /* dssdf */
     font-style: italic;
+}
+
+.flex {
+    display: flex;
+}
+
+.floatright {
+    float: right;
 }
