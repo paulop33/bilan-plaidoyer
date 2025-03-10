@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Model\AveragesBilan;
 use App\Model\BilanActionsMairieCity;
 use App\Model\BilanAmenagementCity;
 use App\Model\BilanCity;
@@ -10,7 +11,6 @@ use App\Model\BilanGlobalCity;
 use App\Model\BilanIntermodaliteCity;
 use App\Model\BilanReVECity;
 use App\Model\BilanVilleApaiseeCity;
-use PhpOffice\PhpSpreadsheet\Reader\Csv as ReaderCsv;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 class BilanCityGenerator
@@ -189,5 +189,47 @@ class BilanCityGenerator
             return null;
         }
         return $data === 'oui';
+    }
+
+    public function getAverages(): AveragesBilan
+    {
+        $data = $this->loadAverageInFile(AveragesBilan::getCSVFile());
+        return new AveragesBilan(
+            averageBilanReVE: $this->getFloatval($data[BilanGlobalCity::REVE]),
+            averageBilanAmenagement: $this->getFloatval($data[BilanGlobalCity::AMENAGEMENTS]),
+            averageBilanIntermodalite: $this->getFloatval($data[BilanGlobalCity::INTERMODALITE]),
+            averageBilanVilleApaisee: $this->getFloatval($data[BilanGlobalCity::VILLE_APAISEE]),
+            averageBilanGenerationVelo: $this->getFloatval($data[BilanGlobalCity::GENERATION_VELO]),
+            averageBilanActionsMairie: $this->getFloatval($data[BilanGlobalCity::AUTRES]),
+            averageBilanGlobal: $this->getFloatval($data[BilanGlobalCity::NOTE_GLOBALE_AVEC_BONUS]),
+        );
+    }
+
+    private function loadAverageInFile(string $file): array
+    {
+        $filename = $this->kernelProjectDir.'/csv-bilan/'.$file;
+        if (!file_exists($filename)) {
+            throw new \Exception("File $filename does not exist");
+        }
+
+        $resource = fopen($filename, 'r');
+        $header = fgetcsv($resource);
+        $header2 = fgetcsv($resource);
+//        for ($i = 0; $i < count($header2); $i++) {
+//            if ($header[$i]) {
+//                $lastHeader1 = $header[$i];
+//            }
+//            $header2[$i] = $lastHeader1 . ($header2[$i] ?? '');
+//        }
+//        $header = $header2;
+        $dataBareme = fgetcsv($resource);
+
+        while (($data = fgetcsv($resource)) !== FALSE) {
+            $dataCity = array_combine($header, $data);
+            if ('Moyenne' === $dataCity[self::VILLE_FIELD_CSV]) {
+                return $dataCity;
+            }
+        }
+        return [];
     }
 }

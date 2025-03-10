@@ -82,31 +82,36 @@
             <div class="action">
                 {{ data.bilanGlobal.reve }}%<br>
                 ReVE<br>
-                <small>(note moyenne : x)</small>
+                <small>(moyenne : {{ averages.averageBilanReVE }}%)</small>
             </div>
             <div class="action">
+                {% if data.bilanGlobal.amenagement > 0 %}
+                    ↗ +
+                {% else %}
+                    ↘
+                {% endif %}
                 {{ data.bilanGlobal.amenagement }}%<br>
                 Aménagement<br>
             </div>
             <div class="action">
                 {{ data.bilanGlobal.intermodalite }}%<br>
                 Intermodalité<br>
-                <small>(note moyenne : x)</small>
+                <small>(moyenne : {{ averages.averageBilanIntermodalite }}%)</small>
             </div>
             <div class="action">
                 {{ data.bilanGlobal.villeApaisee }}%<br>
                 Ville apaisée<br>
-                <small>(note moyenne : x)</small>
+                <small>(moyenne : {{ averages.averageBilanVilleApaisee }}%)</small>
             </div>
             <div class="action">
                 {{ data.bilanGlobal.generationVelo }}%<br>
                 Génération vélo<br>
-                <small>(note moyenne : x)</small>
+                <small>(moyenne : {{ averages.averageBilanGenerationVelo }}%)</small>
             </div>
             <div class="action">
                 {{ data.bilanGlobal.autre }}%<br>
                 Action mairie<br>
-                <small>(note moyenne : x)</small>
+                <small>(moyenne : {{ averages.averageBilanActionsMairie }}%)</small>
             </div>
         </div>
         <h2>Toutes les infos</h2>
@@ -383,44 +388,48 @@
 
         <h2>Carte du mandat</h2>
         <div class="gridCarte">
-            <div>
-                <h3>Aires piétonnes</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_aires_pietonnes.png') }}" width="100%" height="auto" alt="" />
-            </div>
-            <div>
-                <h3>Bandes cyclables double sens</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />
-            </div>
-            <div>
-                <h3>Bandes cyclables</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables.png') }}" width="100%" height="auto" alt="" />
-            </div>
-            <div>
-                <h3>Bandes cyclables simples</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_simple.png') }}" width="100%" height="auto" alt="" />
-                <div style='page-break-after: always;'> </div>
-            </div>
-            <div>
-                <h3>Bordeaux couloirs bus</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_couloirs_bus.png') }}" width="100%" height="auto" alt="" />
-            </div>
-            <div>
-                <h3>Double sens cyclable</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_dsc.png') }}" width="100%" height="auto" alt="" />
-            </div>
-            <div>
-                <h3>Pistes cyclables en contre sens</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_contre_sens.png') }}" width="100%" height="auto" alt="" />
-            </div>
-            <div>
-                <h3>Pistes cyclables double sens</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />
-                <div style='page-break-after: always;'> </div>
-            </div>
-            <div>
-                <h3>Pistes cyclables</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables.png') }}" width="100%" height="auto" alt="" />
-            </div>
+{#            <div>#}
+{#                <h3>Aires piétonnes</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_aires_pietonnes.png') }}" width="100%" height="auto" alt="" />#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Bandes cyclables double sens</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Bandes cyclables</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables.png') }}" width="100%" height="auto" alt="" />#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Bandes cyclables simples</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_simple.png') }}" width="100%" height="auto" alt="" />#}
+{#                <div style='page-break-after: always;'> </div>#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Bordeaux couloirs bus</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_couloirs_bus.png') }}" width="100%" height="auto" alt="" />#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Double sens cyclable</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_dsc.png') }}" width="100%" height="auto" alt="" />#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Pistes cyclables en contre sens</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_contre_sens.png') }}" width="100%" height="auto" alt="" />#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Pistes cyclables double sens</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />#}
+{#                <div style='page-break-after: always;'> </div>#}
+{#            </div>#}
+{#            <div>#}
+{#                <h3>Pistes cyclables</h3>#}
+{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables.png') }}" width="100%" height="auto" alt="" />#}
+{#            </div>#}
+
+
+
+
 {#            <div>#}
 {#                <h3>Bordeaux_pistes_cyclables_simple.png</h3>#}
 {#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_simple.png') }}" width="100%" height="auto" alt="" />#}

@@ -19,7 +19,8 @@ class BilanController extends AbstractController
     public function bilan(): Response
     {
         return $this->render('bilan/index.html.twig', [
-            'data' => $this->bilanCityGenerator->loadBilanCity('Bègles'),
+            'data' => $this->bilanCityGenerator->loadBilanCity('Bordeaux'),
+            'averages' => $this->bilanCityGenerator->getAverages(),
         ]);
     }
 }

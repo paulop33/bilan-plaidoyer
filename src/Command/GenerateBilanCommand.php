@@ -72,6 +72,7 @@ class GenerateBilanCommand extends Command
                 ->html(
                     Stream::string('content', $this->environment->render('bilan/index.html.twig', [
                         'data' => $bilanCity,
+                        'averages' => $this->bilanCityGenerator->getAverages(),
                     ])),
                 )
             ,
