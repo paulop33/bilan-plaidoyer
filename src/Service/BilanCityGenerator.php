@@ -56,6 +56,7 @@ class BilanCityGenerator
     public function createBilanGenerationVeloCity(string $city): BilanGenerationVeloCity
     {
         $data = $this->loadInfosInFile(BilanGenerationVeloCity::getCSVFile(), $city);
+
         return new BilanGenerationVeloCity(
             nbRuesAuxEnfant: (int)$data[BilanGenerationVeloCity::NBRUESAUXENFANT],
             nbRuesAuxEnfantFuturs: (int)$data[BilanGenerationVeloCity::NBRUESAUXENFANTFUTURS],

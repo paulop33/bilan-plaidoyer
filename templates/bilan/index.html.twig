@@ -52,13 +52,13 @@
                     <span class="barometre-title">{{ data.city }}</span>
                 </div>
                 <div class="barometre-scale">
-                    <div class="barometre-label barometre-a"><span>>45%</span> <span class="letter">A</span></div>
+                    <div class="barometre-label barometre-a"><span>>65%</span> <span class="letter">A</span></div>
                     <div class="barometre-label barometre-b"><span>35% - 45%</span> <span class="letter">B</span></div>
                     <div class="barometre-label barometre-c"><span>25% - 35%</span> <span class="letter">C</span></div>
                     <div class="barometre-label barometre-d"><span>15% - 25%</span> <span class="letter">D</span></div>
                     <div class="barometre-label barometre-e"><span>5% - 15%</span> <span class="letter">E</span></div>
-                    <div class="barometre-label barometre-f"><span>1% - 5%</span> <span class="letter">F</span></div>
-                    <div class="barometre-label barometre-g"><span>< 0,01</span> <span class="letter">G</span></div>
+                    <div class="barometre-label barometre-f"><span>2% - 5%</span> <span class="letter">F</span></div>
+                    <div class="barometre-label barometre-g"><span>< 2%</span> <span class="letter">G</span></div>
                 </div>
 
                 <!-- Indicateur noir pour la note -->
@@ -200,17 +200,17 @@
             </div>
         </div>
         <div style='page-break-after: always;'> </div>
-        <h3 class="with-question-legend">Aménagement</h3>
+        <h3 class="with-question-legend no-margin-top">Aménagement</h3>
         <ul class="question-legend">
             <li> Notes calculées par Vélo-Cité en se basant sur l'Open Data de Bordeaux Métropole</li>
             <li> Différents facteurs jouent sur les notes (le type d'aménagement, le linéaire total, etc.).</li>
-            <li> Les notes ne sont pas forcément comparables entre les villes.</li>
-            <li> Barème : 1 pour les bandes cyclables, 2 pour les voies vertes, 3 pour les voies bleues, 4 pour les pistes cyclables, 0 pour une rue sans aménagement. @PIERRE j'ai besoin de ton aide</li>
+            <li> Les notes ne sont pas comparables entre les villes, notamment du fait du kilomètrage de voirie différent.</li>
+            <li> Barème : Double sens cyclable : 0,5 pt, bandes cyclables : 1 pt, Couloir bus-vélo : 2 pts, Vélorue, Secteur borné : 3 pts, Voie verte : 4 pts, Piste cyclable séparée : 5 pts</li>
         </ul>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">
-                    Note debut mandat
+                    Note début de mandat
                 </div>
                 <div class="reponse">
                     {{ data.bilanAmenagement.noteDebutMandat }}
@@ -218,7 +218,7 @@
             </div>
             <div class="question-reponse">
                 <div class="info">
-                    Note fin mandat
+                    Note fin de mandat
                 </div>
                 <div class="reponse">
                     {{ data.bilanAmenagement.noteFinMandat }}
@@ -246,7 +246,7 @@
             <div class="question-reponse">
                 <div class="info">Parking P+V (abri vélo)
                     <p class="question-legend">
-                        Présence d'un simple abri vélo (sans confort) en gare.
+                        Présence d'un simple abri vélo (sans confort).
                     </p>
                 </div>
                 <div class="reponse">{{ data.bilanIntermodalite.pVAbriVelo ? 'Oui' : 'Non'  }}</div>
@@ -312,17 +312,40 @@
             <div class="question-reponse">
                 <div class="info">Nombre de rues aux enfants
                     <p class="question-legend">
-                        Écoles dont les rues sont (temporairement) fermées aux voitures / Nombre total d'écoles
+                        {% if data.bilanGenerationVelo.nbEcoles != 1 %}
+                            Écoles dont les rues sont (temporairement ou non) fermées aux voitures / Nombre total d'écoles
+                        {% else %}
+                            Pourcentage des écoles dont les rues sont (temporairement) fermées aux voitures
+                        {% endif %}
                     </p>
                 </div>
-                <div class="reponse">{{ data.bilanGenerationVelo.nbRuesAuxEnfant }} / {{ data.bilanGenerationVelo.nbEcoles }}</div>
+                <div class="reponse">
+                    {% if data.bilanGenerationVelo.nbEcoles != 1 %}
+                        {{ data.bilanGenerationVelo.nbRuesAuxEnfant }} / {{ data.bilanGenerationVelo.nbEcoles }}
+                        ({{ ((data.bilanGenerationVelo.nbRuesAuxEnfant / data.bilanGenerationVelo.nbEcoles)*100)|number_format }} %)
+                    {% else %}
+                        0%
+                    {% endif %}
+                </div>
             </div>
             <div class="question-reponse">
                 <div class="info">Nombre de rues aux enfants futures
                     <p class="question-legend">
-                        Écoles prochainement sans voiture / Nombre total d'écoles sans rue aux enfants, aujourd'hui
-                    </p></div>
-                <div class="reponse">{{ data.bilanGenerationVelo.nbRuesAuxEnfantFuturs }} / {{ data.bilanGenerationVelo.nbEcoles - data.bilanGenerationVelo.nbRuesAuxEnfant }}</div>
+                        {% if data.bilanGenerationVelo.nbEcoles != 1 %}
+                            Nombre projeté d'écoles projeté (aujourd'hui ou demain) sans voiture / Nombre total d'écoles
+                        {% else %}
+                            Pourcentage d'école projeté (aujourd'hui ou demain) sans voiture
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="reponse">
+                    {% if data.bilanGenerationVelo.nbEcoles != 1 %}
+                        {{ data.bilanGenerationVelo.nbRuesAuxEnfantFuturs + data.bilanGenerationVelo.nbRuesAuxEnfant }} / {{ data.bilanGenerationVelo.nbEcoles }}
+                        ({{ ((data.bilanGenerationVelo.nbRuesAuxEnfantFuturs + data.bilanGenerationVelo.nbRuesAuxEnfant) / data.bilanGenerationVelo.nbEcoles*100)|number_format }} %)
+                    {% else %}
+                        0%
+                    {% endif %}
+                </div>
             </div>
             <div class="question-reponse">
                 <div class="info">Excursion à vélo</div>
@@ -346,10 +369,10 @@
             </div>
             <div class="question-reponse">
                 <div class="info">Projets en cours (SRAV)</div>
-                <div class="reponse">{{ data.bilanGenerationVelo.projetEnCours }}</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.projetEnCours ? 'Oui' : 'Non'}}</div>
             </div>
         </div>
-        <h3>Action mairie (bonus pris en compte)</h3>
+        <h3>Action mairie (en bonus)</h3>
         <div class="toutes-les-infos">
             <div class="question-reponse">
                 <div class="info">Rencontre régulière association vélo

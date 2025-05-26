@@ -1,31 +1,31 @@
-Ville,nouveaux secteurs circu restreinte,plan de circulation,réduction nbre place stationnement auto,ville à 30,arceaux par 1000 habitants (fin mandat),Note Ville apaisée
-Barème,2,2,1,2,bonus,NULL
+Ville,"nouveaux secteurs circu restreinte","plan de circulation","réduction nbre place stationnement auto",ville à 30,arceaux par 1000 habitants (fin mandat),"Note Ville apaisée"
+Barème,2,2,1,2,bonus,
 Ambarès-et-Lagrave,non,non,non,non,"1,0",1%
 Ambès,non,non,non,non,"1,2",1%
-Artigues-près-Bordeaux,non,non,non,oui,"1,6",24%
+Artigues-près-Bordeaux,non,non,non,oui,"1,6",30%
 Bassens,non,non,non,non,"2,2",2%
-Bègles,non,oui,non,oui,"4,3",49%
+Bègles,non,oui,non,oui,"4,3",61%
 Blanquefort,non,non,non,non,"2,6",3%
 Bordeaux,oui,oui,oui,oui,"10,6",111%
 Bouliac,non,non,non,non,"1,6",2%
-Bruges,non,non,non,oui,"3,0",25%
+Bruges,non,non,non,oui,"3,0",32%
 Carbon-Blanc,non,non,non,non,"1,9",2%
-Cenon,non,non,non,oui,"1,5",24%
+Cenon,non,non,non,oui,"1,5",30%
 Eysines,non,non,non,non,"1,2",1%
-Floirac,non,non,non,oui,"4,1",26%
+Floirac,non,non,non,oui,"4,1",33%
 Gradignan,non,non,non,non,"1,3",1%
-Le Bouscat,non,oui,non,oui,"2,8",47%
-Le Haillan,non,oui,non,oui,"1,3",46%
+Le Bouscat,non,oui,non,oui,"2,8",60%
+Le Haillan,non,oui,non,oui,"1,3",58%
 Le Taillan-Médoc,non,non,non,non,"3,0",3%
-Lormont,non,non,non,oui,"0,9",23%
+Lormont,non,non,non,oui,"0,9",29%
 Martignas-sur-Jalle,non,non,non,non,"0,6",1%
 Mérignac,non,non,non,non,"1,8",2%
 Parempuyre,non,non,non,non,"2,1",2%
-Pessac,rue unique,oui,non,non,"2,2",36%
+Pessac,rue unique,oui,non,non,"2,2",45%
 Saint-Aubin de Médoc,non,non,non,non,"2,4",2%
 Saint-Louis-de-Montferrand,non,non,non,non,"3,7",4%
 Saint-Médard-en-Jalles,non,non,non,non,"1,4",1%
 Saint-Vincent-de-Paul,non,non,non,non,"6,0",6%
 Talence,non,non,non,non,"2,6",3%
 Villenave-d'Ornon,non,non,non,non,"1,4",1%
-Moyenne,,,,,,16%
+Moyenne,,,,,,"18,84%"

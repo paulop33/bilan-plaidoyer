@@ -9,7 +9,7 @@ class BilanAmenagementCity implements FromCSVFile
     const FIELD_NOTEFINMANDAT = 'notefinmandat';
     const FIELD_CYCLABILITE = 'Cyclabilité';
     const FIELD_EVOLUTIONSURLEMANDAT = 'Evolution sur le mandat';
-    const FIELD_NOTEAMENAGEMENT = 'Bilan aménagement';
+    const FIELD_NOTEAMENAGEMENT = 'Note aménagements';
     const FILE_CSV = 'Bilan mandat (avec retour mairies) - 2 - Aménagements.csv';
 
     public function __construct(

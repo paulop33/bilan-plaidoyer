@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for city in cities %}
+        <a href="{{ path('app_bilan_final', {'city' : city}) }}">{{ city }}</a><br>
+    {% endfor %}
+{% endblock %}
+
+
