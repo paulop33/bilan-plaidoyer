@@ -52,13 +52,14 @@
                     <span class="barometre-title">{{ data.city }}</span>
                 </div>
                 <div class="barometre-scale">
-                    <div class="barometre-label barometre-a"><span>>65%</span> <span class="letter">A</span></div>
-                    <div class="barometre-label barometre-b"><span>35% - 45%</span> <span class="letter">B</span></div>
-                    <div class="barometre-label barometre-c"><span>25% - 35%</span> <span class="letter">C</span></div>
-                    <div class="barometre-label barometre-d"><span>15% - 25%</span> <span class="letter">D</span></div>
-                    <div class="barometre-label barometre-e"><span>5% - 15%</span> <span class="letter">E</span></div>
-                    <div class="barometre-label barometre-f"><span>2% - 5%</span> <span class="letter">F</span></div>
-                    <div class="barometre-label barometre-g"><span>< 2%</span> <span class="letter">G</span></div>
+                    <div class="barometre-label barometre-a-plus"><span>> 85%</span> <span class="letter">A+</span></div>
+                    <div class="barometre-label barometre-a"><span>70% - 85%</span> <span class="letter">A</span></div>
+                    <div class="barometre-label barometre-b"><span>55% - 70%</span> <span class="letter">B</span></div>
+                    <div class="barometre-label barometre-c"><span>40% - 55%</span> <span class="letter">C</span></div>
+                    <div class="barometre-label barometre-d"><span>25% - 40%</span> <span class="letter">D</span></div>
+                    <div class="barometre-label barometre-e"><span>10% - 25%</span> <span class="letter">E</span></div>
+                    <div class="barometre-label barometre-f"><span>5% - 10%</span> <span class="letter">F</span></div>
+                    <div class="barometre-label barometre-g"><span>< 5%</span> <span class="letter">G</span></div>
                 </div>
 
                 <!-- Indicateur noir pour la note -->
@@ -74,15 +75,15 @@
 {#                <h1>#}
 {#                    {{ data.city }}#}
 {#                </h1>#}
-                <img src="{{ asset('Carte BxM-01.jpg') }}" alt="" height="auto" width="300">
+                <img src="{{ asset('Carte BxM-01.jpg') }}" alt="" height="auto" width="350">
             </div>
         </header>
         <h2>Bilan des actions</h2>
         <div class="bilan-des-actions">
-            <div class="action">
-                {{ data.bilanGlobal.reve }}%<br>
+            <div class="action action-note-{{ data.bilanReVE.lettreNote|lower }}">
+                <span class="noteLetter">{{ data.bilanReVE.lettreNote }}</span>
                 ReVE<br>
-                <small>(moyenne : {{ averages.averageBilanReVE }}%)</small>
+                <small>{{ data.bilanGlobal.reve }}% (moy. {{ averages.averageBilanReVE }}%)</small>
             </div>
             <div class="action">
                 {% if data.bilanGlobal.amenagement > 0 %}
@@ -93,20 +94,20 @@
                 {{ data.bilanGlobal.amenagement }}%<br>
                 Aménagement<br>
             </div>
-            <div class="action">
-                {{ data.bilanGlobal.intermodalite }}%<br>
+            <div class="action action-note-{{ data.bilanIntermodalite.lettreNote|lower }}">
+                <span class="noteLetter">{{ data.bilanIntermodalite.lettreNote }}</span>
                 Intermodalité<br>
-                <small>(moyenne : {{ averages.averageBilanIntermodalite }}%)</small>
+                <small>{{ data.bilanGlobal.intermodalite }}% (moy. {{ averages.averageBilanIntermodalite }}%)</small>
             </div>
-            <div class="action">
-                {{ data.bilanGlobal.villeApaisee }}%<br>
+            <div class="action action-note-{{ data.bilanVilleApaisee.lettreNote|lower }}">
+                <span class="noteLetter">{{ data.bilanVilleApaisee.lettreNote }}</span>
                 Ville apaisée<br>
                 <small>(moyenne : {{ averages.averageBilanVilleApaisee }}%)</small>
             </div>
-            <div class="action">
-                {{ data.bilanGlobal.generationVelo }}%<br>
+            <div class="action action-note-{{ data.bilanGenerationVelo.lettreNote|lower }}">
+                <span class="noteLetter">{{ data.bilanGenerationVelo.lettreNote }}</span>
                 Génération vélo<br>
-                <small>(moyenne : {{ averages.averageBilanGenerationVelo }}%)</small>
+                <small>{{ data.bilanGlobal.generationVelo }}% (moy. {{ averages.averageBilanGenerationVelo }}%)</small>
             </div>
             <div class="action">
                 {{ data.bilanGlobal.autre }}%<br>
@@ -411,76 +412,35 @@
 
         <h2>Carte du mandat</h2>
         <div class="gridCarte">
-{#            <div>#}
-{#                <h3>Aires piétonnes</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_aires_pietonnes.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bandes cyclables double sens</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bandes cyclables</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bandes cyclables simples</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables_simple.png') }}" width="100%" height="auto" alt="" />#}
-{#                <div style='page-break-after: always;'> </div>#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bordeaux couloirs bus</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_couloirs_bus.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Double sens cyclable</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_dsc.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Pistes cyclables en contre sens</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_contre_sens.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Pistes cyclables double sens</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_double_sens.png') }}" width="100%" height="auto" alt="" />#}
-{#                <div style='page-break-after: always;'> </div>#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Pistes cyclables</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
+            <div>
+                <h3>Aires piétonnes</h3>
+                <img src="{{ asset('cartes/bordeaux/Bordeaux_aires_pietonnes.png') }}" width="100%" height="auto" alt="" />
+            </div>
+            <div>
+                <h3>Bandes cyclables</h3>
+                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables.png') }}" width="100%" height="auto" alt="" />
+            </div>
+            <div>
+                <h3>Les couloirs bus</h3>
+                <img src="{{ asset('cartes/bordeaux/Bordeaux_couloirs_bus.png') }}" width="100%" height="auto" alt="" />
+            </div>
+            <div>
+                <h3>Les pistes cyclables</h3>
+                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables.png') }}" width="100%" height="auto" alt="" />
+            </div>
 
-
-
-
-{#            <div>#}
-{#                <h3>Bordeaux_pistes_cyclables_simple.png</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables_simple.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bordeaux_raccords.png</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_raccords.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bordeaux_velorue.png</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_velorue.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bordeaux_voies_vertes.png</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_voies_vertes.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bordeaux_voirie.png</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_voirie.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bordeaux_zone30_dsc.png</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_zone30_dsc.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
-{#            <div>#}
-{#                <h3>Bordeaux_zone_rencontre.png</h3>#}
-{#                <img src="{{ asset('cartes/bordeaux/Bordeaux_zone_rencontre.png') }}" width="100%" height="auto" alt="" />#}
-{#            </div>#}
+            <div>
+                <h3>Les vélorues</h3>
+                <img src="{{ asset('cartes/bordeaux/Bordeaux_velorue.png') }}" width="100%" height="auto" alt="" />
+            </div>
+            <div>
+                <h3>Les voies vertes</h3>
+                <img src="{{ asset('cartes/bordeaux/Bordeaux_voies_vertes.png') }}" width="100%" height="auto" alt="" />
+            </div>
+            <div>
+                <h3>Les zones de rencontre</h3>
+                <img src="{{ asset('cartes/bordeaux/Bordeaux_zone_rencontre.png') }}" width="100%" height="auto" alt="" />
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -16,19 +16,21 @@ class BilanReVECity implements FromCSVFile
     const ACTIONS_POUR_LA_CONSTRUCTION_DU_REVETERMINEE = "Actions pour la construction du ReVEterminée";
     const NOTE_REALISATION_REVE = "Note réalisation ReVE";
     const NOTE_GLOBALE_REVE = "Note globale ReVE";
+    const LETTRE_GLOBALE_REVE = "Lettre ReVE";
     const FILE_CSV = 'Bilan mandat (avec retour mairies) - 1 - ReVE.csv';
 
     public function __construct(
-        public string $nombreDeLigneCorrespondant,
-        public bool $dessertePointsInteretMajeur,
-        public bool $desserteCentreVille,
-        public bool $constructionALEtude,
-        public bool $constructionEntierementALEtude,
-        public bool $constructionCommencee,
-        public bool $constructionTerminee,
-        public float $noteGlobalReVE,
-        public ?float $noteProjetReve = null,
-        public ?float $noteRealisationReVE = null,
+        public string  $nombreDeLigneCorrespondant,
+        public bool    $dessertePointsInteretMajeur,
+        public bool    $desserteCentreVille,
+        public bool    $constructionALEtude,
+        public bool    $constructionEntierementALEtude,
+        public bool    $constructionCommencee,
+        public bool    $constructionTerminee,
+        public float   $noteGlobalReVE,
+        public ?float  $noteProjetReve = null,
+        public ?float  $noteRealisationReVE = null,
+        public ?string $lettreNote = null,
     )
     {
     }

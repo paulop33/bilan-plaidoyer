@@ -11,6 +11,8 @@ class BilanVilleApaiseeCity implements FromCSVFile
     const FIELD_ARCEAUXPOUR1000HAB = 'arceaux par 1000 habitants (fin mandat)';
     const FIELD_NOTEVILLEAPAISEE = 'Note Ville apaisée';
 
+    const NOTE_LETTRE = "Note Lettre";
+
     const FILE_CSV = 'Bilan mandat (avec retour mairies) - 4 - Ville apaisée.csv';
 
     public function __construct(
@@ -19,7 +21,8 @@ class BilanVilleApaiseeCity implements FromCSVFile
         public bool $reductionStationnementAuto,
         public bool $villeA30,
         public float $arceauxPour1000Hab,
-        public float $noteVilleApaisee
+        public float $noteVilleApaisee,
+        public ?string $lettreNote = null,
     )
     {
     }

@@ -12,6 +12,7 @@ class BilanGenerationVeloCity implements FromCSVFile
     const SRAV = 'SRAV';
     const PROJETENCOURS = 'Projets en cours (infos non exhaustives)';
     const NOTEGENERATIONVELO = 'Note génération vélo';
+    const NOTE_LETTRE = "Note Lettre";
 
     const FILE_CSV = 'Bilan mandat (avec retour mairies) - 5 - Génération vélo.csv';
 
@@ -24,6 +25,7 @@ class BilanGenerationVeloCity implements FromCSVFile
         public float $noteGenerationVelo,
         public ?bool $excursion = null,
         public ?bool $projetEnCours = null,
+        public ?string $lettreNote = null,
     )
     {
     }

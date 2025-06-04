@@ -66,6 +66,7 @@ class BilanCityGenerator
             noteGenerationVelo: $this->getFloatval($data[BilanGenerationVeloCity::NOTEGENERATIONVELO]),
             excursion: $this->getBool($data[BilanGenerationVeloCity::EXCURSION]),
             projetEnCours: $this->getBool($data[BilanGenerationVeloCity::PROJETENCOURS]),
+            lettreNote: $data[BilanGenerationVeloCity::NOTE_LETTRE],
         );
     }
 
@@ -81,6 +82,7 @@ class BilanCityGenerator
             gareVeloStationAvecIntentions: (int)$data[BilanIntermodaliteCity::GARE_VELO_STATION_AVEC_INTENTIONS],
             gareAbrisVelo: (int)$data[BilanIntermodaliteCity::GARE_ABRIS_VELO],
             gareArceaux: (int)$data[BilanIntermodaliteCity::GARE_ARCEAUX],
+            lettreNote: $data[BilanIntermodaliteCity::NOTE_LETTRE],
         );
     }
 
@@ -99,6 +101,7 @@ class BilanCityGenerator
             noteGlobalReVE: $this->getFloatval($data[BilanReVECity::NOTE_GLOBALE_REVE]),
             noteProjetReve: $this->getFloatval($data[BilanReVECity::NOTE_PROJET_REVE]),
             noteRealisationReVE: $this->getFloatval($data[BilanReVECity::NOTE_REALISATION_REVE]),
+            lettreNote: $data[BilanReVECity::LETTRE_GLOBALE_REVE],
         );
     }
 
@@ -127,6 +130,7 @@ class BilanCityGenerator
             villeA30: $this->getBool($data[BilanVilleApaiseeCity::FIELD_VILLEA30]),
             arceauxPour1000Hab: $this->getFloatval($data[BilanVilleApaiseeCity::FIELD_ARCEAUXPOUR1000HAB]),
             noteVilleApaisee: $this->getFloatval($data[BilanVilleApaiseeCity::FIELD_NOTEVILLEAPAISEE]),
+            lettreNote: $data[BilanVilleApaiseeCity::NOTE_LETTRE],
         );
     }
 

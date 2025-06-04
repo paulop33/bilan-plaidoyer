@@ -13,6 +13,7 @@ class BilanIntermodaliteCity implements FromCSVFile
     const DEMANDE_PLAIDOYER = "Demande plaidoyer";
     const METSTATION = "Metstation";
     const NOTE_INTEMODALITE = "Note Intemodalité";
+    const NOTE_LETTRE = "Note Lettre";
 
     const FILE_CSV = 'Bilan mandat (avec retour mairies) - 3 - Intermodalité.csv';
 
@@ -24,6 +25,7 @@ class BilanIntermodaliteCity implements FromCSVFile
         public ?int $gareVeloStationAvecIntentions = null,
         public ?int $gareAbrisVelo = null,
         public ?int $gareArceaux = null,
+        public ?string $lettreNote = null,
     )
     {
     }

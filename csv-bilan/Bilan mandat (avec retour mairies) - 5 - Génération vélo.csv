@@ -1,31 +1,31 @@
-Ville,percentRuesAuxEnfants,percentRuesAuxEnfants futur,excursion,pédibusvelobus,SRAV,Note génération vélo,nbRuesAuxEnfants,nbRuesAuxEnfants futur,nbEcole,Projets en cours (infos non exhaustives)
-Barème,"","",1,2,3,2,3,1,,1
-Ambarès-et-Lagrave,0%,0%,non,non,non,0%,0,0,1,
-Ambès,0%,0%,non,non,non,0%,0,0,1,
-Artigues-près-Bordeaux,0%,0%,non,non,non,0%,0,0,1,
-Bassens,67%,0%,oui,non,oui,67%,2,0,3,
-Bègles,50%,36%,non,oui,oui,84%,7,5,14,oui
-Blanquefort,0%,0%,non,non,non,0%,0,0,1,
-Bordeaux,64%,25%,oui,oui,oui,98%,63,25,99,oui
-Bouliac,0%,0%,non,non,non,0%,0,0,1,
-Bruges,0%,0%,non,non,non,0%,0,0,1,
-Carbon-Blanc,0%,0%,non,non,oui,30%,0,0,1,
-Cenon,7%,13%,non,non,oui,44%,1,2,15,oui
-Eysines,0%,0%,non,non,non,0%,0,0,1,
-Floirac,14%,14%,non,oui,oui,67%,1,1,7,oui
-Gradignan,0%,0%,non,non,oui,30%,0,0,1,
-Le Bouscat,11%,0%,non,non,non,4%,1,0,9,
-Le Haillan,1%,0%,oui,non,oui,41%,"0,0125",0,1,
-Le Taillan-Médoc,0%,0%,non,non,oui,30%,0,0,1,
-Lormont,8%,0%,oui,non,oui,53%,1,0,13,oui
-Martignas-sur-Jalle,0%,0%,non,non,non,0%,0,0,1,
-Mérignac,0%,0%,oui,non,oui,50%,0,0,1,oui
-Parempuyre,0%,0%,non,non,oui,30%,0,0,1,
-Pessac,5%,0%,non,non,non,2%,1,0,21,
-Saint-Aubin de Médoc,0%,0%,non,oui,non,20%,0,0,1,
-Saint-Louis-de-Montferrand,0%,0%,non,non,non,0%,0,0,1,
-Saint-Médard-en-Jalles,0%,0%,non,non,non,0%,0,0,1,
-Saint-Vincent-de-Paul,0%,0%,non,non,oui,30%,0,0,1,
-Talence,20%,0%,non,non,non,8%,2,0,10,
-Villenave-d'Ornon,0%,0%,non,non,oui,30%,0,0,1,
-Moyenne,,,,,,26%,,,,
+Ville,percentRuesAuxEnfants,percentRuesAuxEnfants futur,excursion,pédibusvelobus,SRAV,Note génération vélo,Note Lettre,nbRuesAuxEnfants,nbRuesAuxEnfants futur,nbEcole,Projets en cours (infos non exhaustives)
+Barème,1,2,3,2,3,1,,NULL,NULL,NULL,NULL
+Ambarès-et-Lagrave,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Ambès,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Artigues-près-Bordeaux,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Bassens,67 %,0 %,oui,non,oui,74 %,A,2,0,3,
+Bègles,50 %,36 %,non,oui,oui,82 %,A,7,5,14,oui
+Blanquefort,0 %,0 %,non,non,oui,33 %,D,0,0,1,
+Bordeaux,64 %,25 %,oui,oui,oui,98 %,AA,63,25,99,
+Bouliac,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Bruges,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Carbon-Blanc,0 %,0 %,non,non,oui,33 %,D,0,0,1,
+Cenon,7 %,13 %,non,non,oui,49 %,C,1,2,15,oui
+Eysines,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Floirac,14 %,14 %,non,oui,oui,63 %,B,1,1,7,oui
+Gradignan,0 %,0 %,non,non,oui,33 %,D,0,0,1,
+Le Bouscat,11 %,0 %,non,non,non,5 %,G,1,0,9,
+Le Haillan,1 %,0 %,oui,non,oui,45 %,C,"0,0125",0,1,oui
+Le Taillan-Médoc,0 %,0 %,non,non,oui,33 %,D,0,0,1,
+Lormont,8 %,0 %,oui,non,oui,59 %,B,1,0,13,
+Martignas-sur-Jalle,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Mérignac,0 %,0 %,oui,non,oui,56 %,B,0,0,1,
+Parempuyre,0 %,0 %,non,non,oui,33 %,D,0,0,1,
+Pessac,10 %,0 %,non,non,non,4 %,G,2,0,21,
+Saint-Aubin de Médoc,0 %,0 %,non,oui,non,11 %,E,0,0,1,
+Saint-Louis-de-Montferrand,0 %,0 %,non,non,non,0 %,G,0,0,1,
+Saint-Médard-en-Jalles,0 %,0 %,oui,oui,oui,56 %,B,0,0,1,
+Saint-Vincent-de-Paul,0 %,0 %,non,non,oui,33 %,D,0,0,1,
+Talence,20 %,0 %,non,non,non,9 %,F,2,0,10,
+Villenave-d'Ornon,0 %,0 %,non,non,oui,33 %,D,0,0,1,
+Moyenne,,,,,,30 %,D,,,,
