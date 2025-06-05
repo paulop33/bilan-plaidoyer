@@ -1,31 +1,31 @@
-Ville,P+V (vélostations projetées),P+V (abri vélo),Gare - vélo station (avec intentions),Gare - abris vélo,Détail,Gare - Arceaux,Détail,Demande plaidoyer,Détail,Proportion,Metstation,Note Intemodalité
-Barème,8,2,10,2,,1,,,,,1,NULL
-Ambarès-et-Lagrave,non,non,0,14,14+0,6,3+0,250,100+150,6%,non,1%
-Ambès,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Artigues-près-Bordeaux,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Bassens,non,non,0,20,,20,,200,,10%,non,1%
-Bègles,non,non,0,0,,0,,300,,0%,non,0%
-Blanquefort,non,non,0,20,,0,,150,,13%,non,1%
-Bordeaux,non,non,2000,0,,500,60,2500,,80%,oui,44%
-Bouliac,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Bruges,non,non,0,14,,0,,300,,5%,non,0%
-Carbon-Blanc,non,non,0,0,sur sainte Eulalie,,sur sainte Eulalie,200,,0%,non,0%
-Cenon,non,non,,100,oui (équivalent en 4 divisions),20,,500,,20%,non,2%
-Eysines,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Floirac,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Gradignan,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Le Bouscat,non,non,0,40,,20,,300,,13%,non,2%
-Le Haillan,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Le Taillan-Médoc,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Lormont,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Martignas-sur-Jalle,non,oui,NC,NC,,NC,,NC,,NC,non,22%
-Mérignac,non,oui,0,30,,26,,600,300+300,5%,oui,15%
-Parempuyre,non,non,0,0,,0,,100,,0%,non,0%
-Pessac,oui,non,0,30,0+30,70,26+9,500,300+200,6%,oui,44%
-Saint-Aubin de Médoc,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Saint-Louis-de-Montferrand,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Saint-Médard-en-Jalles,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Saint-Vincent-de-Paul,non,non,NC,NC,,NC,,NC,,NC,non,0%
-Talence,non,non,0,120,,40,,300,,40%,non,4%
-Villenave-d'Ornon,non,non,0,0,,0,,200,,0%,non,0%
-Moyenne,,,,,,,,,,,,5%
+Ville,P+V (vélostations projetées),P+V (abri vélo),Gare - vélo station (avec intentions),Gare - abris vélo,Détail,Gare - Arceaux,Détail,Demande plaidoyer,Détail,Proportion,Metstation,Note Intemodalité,Note Lettre
+Barème,8,2,10,2,,1,,,,,1,NULL,NULL
+Ambarès-et-Lagrave,non,non,0,14,14+0,6,3+0,250,100+150,6 %,non,1 %,G
+Ambès,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Artigues-près-Bordeaux,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Bassens,non,non,0,20,,20,,200,,10 %,non,1 %,G
+Bègles,non,non,0,0,,0,,300,,0 %,non,0 %,G
+Blanquefort,non,non,0,20,,0,,150,,13 %,non,1 %,G
+Bordeaux,non,non,2000,0,,500,60,2500,,80 %,oui,38 %,D
+Bouliac,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Bruges,non,non,0,14,,0,,300,,5 %,non,0 %,G
+Carbon-Blanc,non,non,0,0,sur sainte Eulalie,,sur sainte Eulalie,200,,0 %,non,0 %,G
+Cenon,non,non,,100,oui (équivalent en 4 divisions),20,,500,,20 %,non,2 %,G
+Eysines,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Floirac,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Gradignan,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Le Bouscat,non,non,0,40,,20,,300,,13 %,non,1 %,G
+Le Haillan,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Le Taillan-Médoc,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Lormont,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Martignas-sur-Jalle,non,oui,NC,NC,,NC,,NC,,NC,non,18 %,E
+Mérignac,non,oui,0,30,,26,,600,300+300,5 %,oui,13 %,E
+Parempuyre,non,non,0,0,,0,,100,,0 %,non,0 %,G
+Pessac,oui,non,0,30,0+30,70,26+9,500,300+200,6 %,oui,39 %,D
+Saint-Aubin de Médoc,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Saint-Louis-de-Montferrand,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Saint-Médard-en-Jalles,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Saint-Vincent-de-Paul,non,non,NC,NC,,NC,,NC,,NC,non,0 %,G
+Talence,non,non,0,120,,40,,300,,40 %,non,4 %,G
+Villenave-d'Ornon,non,non,0,0,,0,,200,,0 %,non,0 %,G
+Moyenne,,,,,,,,,,,,4 %,G

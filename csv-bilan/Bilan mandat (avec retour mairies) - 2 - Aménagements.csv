@@ -1,31 +1,31 @@
-Ville,notedebutmandat,notefinmandat,Cyclabilité,Evolution sur le mandat,Note aménagements
-Barème,,,0,1,
-Ambarès-et-Lagrave,"0,269","0,329",7%,22%,22%
-Ambès,"0,293","0,316",6%,8%,8%
-Artigues-près-Bordeaux,"0,401","0,540",11%,35%,35%
-Bassens,"0,535","0,561",11%,5%,5%
-Bègles,"0,515","0,587",12%,14%,14%
-Blanquefort,"0,672","0,750",15%,12%,12%
-Bordeaux,"0,665","0,730",15%,10%,10%
-Bouliac,"0,554","0,560",11%,1%,1%
-Bruges,"1,082","1,229",25%,14%,14%
-Carbon-Blanc,"0,472","0,472",9%,0%,0%
-Cenon,"0,358","0,486",10%,36%,36%
-Eysines,"1,042","1,102",22%,6%,6%
-Floirac,"0,477","0,542",11%,14%,14%
-Gradignan,"0,693","0,770",15%,11%,11%
-Le Bouscat,"0,312","0,389",8%,25%,25%
-Le Haillan,"0,914","1,013",20%,11%,11%
-Le Taillan-Médoc,"0,377","0,471",9%,25%,25%
-Lormont,"0,747","0,775",16%,4%,4%
-Martignas-sur-Jalle,"0,393","0,478",10%,22%,22%
-Mérignac,"0,892","1,022",20%,15%,15%
-Parempuyre,"0,435","0,524",10%,20%,20%
-Pessac,"0,763","0,812",16%,6%,6%
-Saint-Aubin de Médoc,"0,628","0,626",13%,0%,0%
-Saint-Louis-de-Montferrand,"0,374","0,457",9%,22%,22%
-Saint-Médard-en-Jalles,"0,728","0,751",15%,3%,3%
-Saint-Vincent-de-Paul,"0,218","0,218",4%,0%,0%
-Talence,"0,437","0,519",10%,19%,19%
-Villenave-d'Ornon,"0,542","0,542",11%,0%,0%
-Moyenne,,,,,13%
+Ville,notedebutmandat,notefinmandat,Cyclabilité,Evolution sur le mandat,Note aménagements,Note Lettre
+Barème,,,0,1,,NULL
+Ambarès-et-Lagrave,"0,266","0,325",7%,22 %,22 %,E
+Ambès,"0,243","0,266",5%,9 %,9 %,F
+Artigues-près-Bordeaux,"0,329","0,467",9%,42 %,42 %,C
+Bassens,"0,519","0,559",11%,8 %,8 %,F
+Bègles,"0,515","0,59",12%,15 %,15 %,E
+Blanquefort,"0,696","0,776",16%,11 %,11 %,E
+Bordeaux,"0,597","0,665",13%,11 %,11 %,E
+Bouliac,"0,805","0,820",16%,2 %,2 %,G
+Bruges,"1,1","1,25",25%,14 %,14 %,E
+Carbon-Blanc,"0,463","0,461",9%,0 %,0 %,G
+Cenon,"0,279","0,401",8%,44 %,44 %,C
+Eysines,"0,881","0,93",19%,6 %,6 %,F
+Floirac,"0,447","0,528",11%,18 %,18 %,E
+Gradignan,"0,7","0,781",16%,12 %,12 %,E
+Le Bouscat,"0,309","0,369",7%,19 %,19 %,E
+Le Haillan,"0,877","0,998",20%,14 %,14 %,E
+Le Taillan-Médoc,"0,366","0,466",9%,27 %,27 %,D
+Lormont,"0,698","0,728",15%,4 %,4 %,G
+Martignas-sur-Jalle,"0,412","0,502",10%,22 %,22 %,E
+Mérignac,"0,782","0,911",18%,16 %,16 %,E
+Parempuyre,"0,39","0,486",10%,25 %,25 %,E
+Pessac,"0,683","0,73",15%,7 %,7 %,F
+Saint-Aubin de Médoc,"0,611","0,623",12%,2 %,2 %,G
+Saint-Louis-de-Montferrand,"0,342","0,425",9%,24 %,24 %,E
+Saint-Médard-en-Jalles,"0,677","0,737",15%,9 %,9 %,F
+Saint-Vincent-de-Paul,"0,218","0,218",4%,0 %,0 %,G
+Talence,"0,48","0,556",11%,16 %,16 %,E
+Villenave-d'Ornon,"0,484","0,513",10%,6 %,6 %,F
+Moyenne,,,,,14 %,E

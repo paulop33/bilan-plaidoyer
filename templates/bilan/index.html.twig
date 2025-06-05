@@ -230,7 +230,7 @@
         <ul class="question-legend">
             <li> Notes calculées par Vélo-Cité en se basant sur l'Open Data de Bordeaux Métropole</li>
             <li> Différents facteurs jouent sur les notes (le type d'aménagement, le linéaire total, etc.).</li>
-            <li> Les notes ne sont pas comparables entre les villes, notamment du fait du kilomètrage de voirie différent.</li>
+            <li> Les notes des villes ne sont pas toutes entre elle, notamment du fait du total de km de voirie.</li>
             <li> Barème : Double sens cyclable : 0,5 pt, bandes cyclables : 1 pt, Couloir bus-vélo : 2 pts, Vélorue, Secteur borné : 3 pts, Voie verte : 4 pts, Piste cyclable séparée : 5 pts</li>
         </ul>
         <div class="toutes-les-infos">
@@ -310,7 +310,7 @@
                         Nouvelles zones sans véhicules motorisés.
                     </p>
                 </div>
-                <div class="reponse">{{ data.bilanVilleApaisee.nouveauxSecteursCircuRestreinte ? 'Oui' : 'Non'  }}</div>
+                <div class="reponse">{{ data.bilanVilleApaisee.nouveauxSecteursCircuRestreinte  }}</div>
             </div>
             <div class="question-reponse">
                 <div class="info">Plan de circulation
@@ -358,9 +358,9 @@
                 <div class="info">Nombre de rues aux enfants futures
                     <p class="question-legend">
                         {% if data.bilanGenerationVelo.nbEcoles != 1 %}
-                            Nombre projeté d'écoles projeté (aujourd'hui ou demain) sans voiture / Nombre total d'écoles
+                            Nombre projeté d'écoles (aujourd'hui ou demain) sans voiture / Nombre total d'écoles
                         {% else %}
-                            Pourcentage d'école projeté (aujourd'hui ou demain) sans voiture
+                            Pourcentage projeté d'école (aujourd'hui ou demain) sans voiture
                         {% endif %}
                     </p>
                 </div>
@@ -391,7 +391,7 @@
                         Déploiement du dispositif « Savoir Rouler à Vélo » dans les écoles.
                     </p>
                 </div>
-                <div class="reponse">{{ data.bilanGenerationVelo.srav ? 'Oui' : 'Non'  }}</div>
+                <div class="reponse">{{ data.bilanGenerationVelo.srav  }}</div>
             </div>
             <div class="question-reponse">
                 <div class="info">Projets en cours (SRAV)</div>

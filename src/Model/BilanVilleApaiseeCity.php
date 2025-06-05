@@ -16,7 +16,7 @@ class BilanVilleApaiseeCity implements FromCSVFile
     const FILE_CSV = 'Bilan mandat (avec retour mairies) - 4 - Ville apaisée.csv';
 
     public function __construct(
-        public bool $nouveauxSecteursCircuRestreinte,
+        public string $nouveauxSecteursCircuRestreinte,
         public bool $planDeCirculation,
         public bool $reductionStationnementAuto,
         public bool $villeA30,

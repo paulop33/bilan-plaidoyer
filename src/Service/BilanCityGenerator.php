@@ -62,7 +62,7 @@ class BilanCityGenerator
             nbRuesAuxEnfantFuturs: (int)$data[BilanGenerationVeloCity::NBRUESAUXENFANTFUTURS],
             nbEcoles: (int)$data[BilanGenerationVeloCity::NBECOLES],
             pedibusVelobus: $this->getBool($data[BilanGenerationVeloCity::PEDIBUSVELOBUS]),
-            srav: $this->getBool($data[BilanGenerationVeloCity::SRAV]),
+            srav: $data[BilanGenerationVeloCity::SRAV],
             noteGenerationVelo: $this->getFloatval($data[BilanGenerationVeloCity::NOTEGENERATIONVELO]),
             excursion: $this->getBool($data[BilanGenerationVeloCity::EXCURSION]),
             projetEnCours: $this->getBool($data[BilanGenerationVeloCity::PROJETENCOURS]),
@@ -124,7 +124,7 @@ class BilanCityGenerator
         $data = $this->loadInfosInFile(BilanVilleApaiseeCity::getCSVFile(), $city);
 
         return new BilanVilleApaiseeCity(
-            nouveauxSecteursCircuRestreinte: $this->getBool($data[BilanVilleApaiseeCity::FIELD_NOUVEAUXSECTEURSCIRCURESTREINTE]),
+            nouveauxSecteursCircuRestreinte: (string)$data[BilanVilleApaiseeCity::FIELD_NOUVEAUXSECTEURSCIRCURESTREINTE],
             planDeCirculation: $this->getBool($data[BilanVilleApaiseeCity::FIELD_PLANDECIRCULATION]),
             reductionStationnementAuto: $this->getBool($data[BilanVilleApaiseeCity::FIELD_REDUCTIONSTATIONNEMENTAUTO]),
             villeA30: $this->getBool($data[BilanVilleApaiseeCity::FIELD_VILLEA30]),

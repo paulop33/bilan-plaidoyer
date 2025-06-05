@@ -1,13 +1,6 @@
-Bilan,,"1
-ReVE","2
-Aménagements","3
-Intermodalité","4
-Ville apaisée","5
-Génération vélo",Bonus,,"Note globale
-(sans bonus)",Note globale,,Rang,Code Insee
-,,Actions en faveur de l'aménagement du ReVE,Evolution sur le mandat,Actions en faveur de l'intermodalité,Actions en faveur de la ville apaisée,Actions en faveur de l'émergence d'une génération vélo,Actions spécifiques mairie,,Actions en faveur du développement de la pratique du vélo,"Actions en faveur du développement
-de la pratique du vélo",,Donné à titre indicatif,
-Barème,,2,2,2,2,2,1,,,,,,
+"Ville",,"1 - ReVE","2 - Aménagements","3 - Intermodalité","4 - Ville apaisée","5 - Génération vélo","Autres",,"Note globale (sans bonus)","Note globale (avec bonus)","Note","Rang", "Code Insee"
+,,"Actions en faveur de l'aménagement du ReVE","Evolution sur le mandat","Actions en faveur de l'intermodalité","Actions en faveur de la ville apaisée","Actions en faveur de l'émergence d'une génération vélo","Actions spécifiques mairie (bonus)",,"Actions en faveur du développement de la pratique du vélo","Actions en faveur du développement de la pratique du vélo",,"Donné à titre indicatif",
+"Barème",,2,2,2,2,2,1,,,,,,
 Ambarès-et-Lagrave,,52 %,22 %,1 %,1 %,0 %,0 %,,"15,2%",15 %,D,21,33003
 Ambès,,0 %,8 %,0 %,1 %,0 %,0 %,,"1,8%",2 %,G,28,33004
 Artigues-près-Bordeaux,,73 %,35 %,0 %,24 %,0 %,17 %,,"26,4%",27 %,C,9,33013

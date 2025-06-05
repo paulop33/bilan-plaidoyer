@@ -21,7 +21,7 @@ class BilanGenerationVeloCity implements FromCSVFile
         public int $nbRuesAuxEnfantFuturs,
         public int $nbEcoles,
         public bool $pedibusVelobus,
-        public bool $srav,
+        public string $srav,
         public float $noteGenerationVelo,
         public ?bool $excursion = null,
         public ?bool $projetEnCours = null,
