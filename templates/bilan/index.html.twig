@@ -63,7 +63,12 @@
                 </div>
 
                 <!-- Indicateur noir pour la note -->
-                <div class="barometre-indicator barometre-indicator--note-{{ data.bilanGlobal.noteLetter|lower }}">
+                {% if data.bilanGlobal.noteLetter|lower == 'a+' %}
+                    {% set note = 'a-plus'  %}
+                {% else %}
+                    {% set note = data.bilanGlobal.noteLetter|lower %}
+                {% endif %}
+                <div class="barometre-indicator barometre-indicator--note-{{ note }}">
                     {{ data.bilanGlobal.noteGlobaleAvecBonus }}% {{ data.bilanGlobal.noteLetter }}
                 </div>
                 <div class="barometre-footer">
@@ -80,7 +85,12 @@
         </header>
         <h2>Bilan des actions</h2>
         <div class="bilan-des-actions">
-            <div class="action action-note-{{ data.bilanReVE.lettreNote|lower }}">
+            {% if data.bilanGlobal.noteLetter|lower == 'a+' %}
+                {% set note = 'a-plus'  %}
+            {% else %}
+                {% set note = data.bilanGlobal.noteLetter|lower %}
+            {% endif %}
+            <div class="action action-note-{{ note }}">
                 <span class="noteLetter">{{ data.bilanReVE.lettreNote }}</span>
                 ReVE<br>
                 <small>{{ data.bilanGlobal.reve }}% (moy. {{ averages.averageBilanReVE }}%)</small>
@@ -94,17 +104,32 @@
                 {{ data.bilanGlobal.amenagement }}%<br>
                 Aménagement<br>
             </div>
-            <div class="action action-note-{{ data.bilanIntermodalite.lettreNote|lower }}">
+            {% if data.bilanIntermodalite.lettreNote|lower == 'a+' %}
+                {% set note = 'a-plus'  %}
+            {% else %}
+                {% set note = data.bilanIntermodalite.lettreNote|lower %}
+            {% endif %}
+            <div class="action action-note-{{ note }}">
                 <span class="noteLetter">{{ data.bilanIntermodalite.lettreNote }}</span>
                 Intermodalité<br>
                 <small>{{ data.bilanGlobal.intermodalite }}% (moy. {{ averages.averageBilanIntermodalite }}%)</small>
             </div>
-            <div class="action action-note-{{ data.bilanVilleApaisee.lettreNote|lower }}">
+            {% if data.bilanVilleApaisee.lettreNote|lower == 'a+' %}
+                {% set note = 'a-plus'  %}
+            {% else %}
+                {% set note = data.bilanVilleApaisee.lettreNote|lower %}
+            {% endif %}
+            <div class="action action-note-{{ note }}">
                 <span class="noteLetter">{{ data.bilanVilleApaisee.lettreNote }}</span>
                 Ville apaisée<br>
                 <small>(moyenne : {{ averages.averageBilanVilleApaisee }}%)</small>
             </div>
-            <div class="action action-note-{{ data.bilanGenerationVelo.lettreNote|lower }}">
+            {% if data.bilanGenerationVelo.lettreNote|lower == 'a+' %}
+                {% set note = 'a-plus'  %}
+            {% else %}
+                {% set note = data.bilanGenerationVelo.lettreNote|lower %}
+            {% endif %}
+            <div class="action action-note-{{ note }}">
                 <span class="noteLetter">{{ data.bilanGenerationVelo.lettreNote }}</span>
                 Génération vélo<br>
                 <small>{{ data.bilanGlobal.generationVelo }}% (moy. {{ averages.averageBilanGenerationVelo }}%)</small>
@@ -414,32 +439,39 @@
         <div class="gridCarte">
             <div>
                 <h3>Aires piétonnes</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_aires_pietonnes.png') }}" width="100%" height="auto" alt="" />
+                {% set img = data.city~'/aires_pietonnes' %}
+                <img src="{{ asset('cartes/'~img~'.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
                 <h3>Bandes cyclables</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_bandes_cyclables.png') }}" width="100%" height="auto" alt="" />
+                {% set img = data.city~'/bandes_cyclables' %}
+                <img src="{{ asset('cartes/'~img~'.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
                 <h3>Les couloirs bus</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_couloirs_bus.png') }}" width="100%" height="auto" alt="" />
+                {% set img = data.city~'/couloirs_bus' %}
+                <img src="{{ asset('cartes/'~img~'.png') }}" width="100%" height="auto" alt="" />
             </div>
-            <div>
+            <div style='page-break-after: always;'>
                 <h3>Les pistes cyclables</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_pistes_cyclables.png') }}" width="100%" height="auto" alt="" />
+                {% set img = data.city~'/pistes_cyclables' %}
+                <img src="{{ asset('cartes/'~img~'.png') }}" width="100%" height="auto" alt="" />
             </div>
 
             <div>
                 <h3>Les vélorues</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_velorue.png') }}" width="100%" height="auto" alt="" />
+                {% set img = data.city~'/velorue' %}
+                <img src="{{ asset('cartes/'~img~'.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
                 <h3>Les voies vertes</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_voies_vertes.png') }}" width="100%" height="auto" alt="" />
+                {% set img = data.city~'/voies_vertes' %}
+                <img src="{{ asset('cartes/'~img~'.png') }}" width="100%" height="auto" alt="" />
             </div>
             <div>
                 <h3>Les zones de rencontre</h3>
-                <img src="{{ asset('cartes/bordeaux/Bordeaux_zone_rencontre.png') }}" width="100%" height="auto" alt="" />
+                {% set img = data.city~'/zone_rencontre' %}
+                <img src="{{ asset('cartes/'~img~'.png') }}" width="100%" height="auto" alt="" />
             </div>
         </div>
     </div>
