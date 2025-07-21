@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>
+            Objet > Publication du bilan d'étape du plaidoyer 2020-2026
+        </h1><br><br>
+
+        <p>
+            {% if data.genre == 0 %}
+                Madame la Maire,
+            {% else %}
+                Monsieur le Maire,
+            {% endif %}
+        </p>
+        <p>
+            Nous avons le plaisir de vous informer que le bilan d’étape du plaidoyer 2020-2026, porté par notre association
+            Vélo-Cité, a été publié en ce début de mois de juin 2025.
+        </p>
+        <p>
+            Il est accessible à cette adresse suivante :<br>
+            <a href="https://velo-cite.org/bilan-detape-du-plaidoyer-2020-2025/">https://velo-cite.org/bilan-detape-du-plaidoyer-2020-2025/</a>
+        </p>
+        <p>
+            Ce document dresse un état des lieux de l’avancement des engagements pris en faveur du développement du vélo
+            sur la métropole, sur la base du plaidoyer signé en 2020 par 15 maires élu·es ou réélu·es (et 48 candidat·es).
+        </p>
+        <p>
+            Une première lettre d'information, contenant des demandes d’informations, vous avait été adressée en avril 2024.<br>
+            Nous remercions chaleureusement les 12 communes qui nous ont déjà fait part de leurs retours et ont contribué
+            à enrichir ce travail.
+        </p>
+        <p>
+            Nous tenons particulièrement à <strong>féliciter</strong> les communes ayant d’ores et déjà atteint <strong>la note de D</strong>,
+            correspondant à <strong>au moins 25 % d’engagement</strong> sur un plaidoyer exigeant et ambitieux.
+            Cette note D est représentée en vert clair sur notre carte — un choix visuel que n’a malheureusement pas
+            repris l’infographie publiée par Sud-Ouest.
+        </p>
+        <p>
+            Le détail concernant votre commune est disponible ici :<br>
+            <a href="{{ data.lienBilanCommune }}">{{ data.lienBilanCommune }}</a>
+        </p>
+        <p>
+            Une <strong>actualisation du bilan sera publiée courant octobre</strong>.
+            Elle intégrera les retours que les communes nous auront transmis d’ici là.<br>
+            Une présentation à destinations des adhérent·es sera aussi réalisée.<br>
+            Nous vous invitons, donc, à nous faire part de toute correction d’ici la mi-septembre
+            afin que l’actualisation reflète au mieux votre action.
+        </p>
+
+        <p>
+            Par souci d’équité, <strong>plusieurs indicateurs</strong> du bilan <strong>reposent sur des données issues de l’open data
+            métropolitain</strong>, notamment les <strong>aménagements</strong> et le <strong>nombre d’arceaux</strong>.
+            Ces données, centralisées et gérées par Bordeaux Métropole, assurent un traitement homogène entre toutes les
+            communes. Comme l’an dernier, nous invitons les communes à signaler directement aux services de la métropole
+            toute anomalie ou erreur relevée dans ces données.<br>
+            Nous comprenons qu’il peut être décevant qu’un nouvel aménagement ne soit pas pris en compte dans le bilan
+            de l’association. Toutefois, utiliser l’open data est la seule possibilité pour l’association de traiter
+            équitablement les communes.
+        </p>
+        <p>
+            À titre d’information, <strong>ni les critères d’évaluation ni le barème ne seront modifiés</strong>.
+            Ils s’appuient sur les éléments du plaidoyer de 2020, garantissant une lecture équitable, connue de longue
+            date et partagée pour l’ensemble des communes de la métropole.
+        </p>
+        <p>
+            Le nouveau bilan comportera 2 nouvelles notions : une identification des communes dont le ou la maire
+            s’était engagé à respecter le plaidoyer en 2020 et mettra en avant la note du baromètre 2025 de la FUB,
+            dont les résultats seront rendus public le 18 septembre.
+        </p>
+        <p>
+            Enfin, pour terminer, <strong>Vélo-Cité</strong> souhaite rappeler son <strong>indépendance</strong> de toute
+            mairie ou parti politique : une analyse du bilan permet d’ailleurs de remarquer que toutes les sensibilités
+            politiques ont reçu un ou des bilans sensiblement positifs ( > D) mais aussi au moins un bilan inférieur.
+        </p>
+        <p>
+            <strong>L’association rappelle sa volonté d’accompagner toutes les politiques en faveur du vélo</strong>,
+            comme elle accompagne toutes les entreprises et tous les citoyens souhaitant être accompagné·es.
+        </p>
+        <p>
+            Restant à votre disposition pour tout échange ou complément, nous vous prions d’agréer,
+            {% if data.genre == 0 %}Madame la Maire,{% else %}Monsieur le Maire,{% endif %}
+            l’expression de nos salutations les plus respectueuses.
+        </p>
+        <p>
+            Pour l’équipe de Vélo-Cité,<br>
+            Virginie Simonnet et Paul Lopez
+        </p>
+    </div>
+{% endblock %}

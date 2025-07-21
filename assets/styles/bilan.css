@@ -184,7 +184,7 @@ h4.with-question-legend {
     &+.question-legend {
         font-style: italic;
         font-size: small;
-        margin: 0 0 1rem;
+        margin: 0 0 0.5rem;
     }
 }
 
